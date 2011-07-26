@@ -37,3 +37,51 @@
 #topnav li#tn_data a{width:160px;}
 
 </style>
+  <?php
+  //setup page variables
+  //todo: sanitize all request vars
+  //todo: better navigation between searches
+    if (isset($_REQUEST['sel_years'])){
+      $years = $_REQUEST['sel_years'];
+    }
+    else {
+      //page resubmit, use previous years from last search
+      if (isset($_REQUEST['hdn_Years'])){
+        $years = explode(",", $_REQUEST['hdn_Years']);
+      }
+      //first time on page
+      else $years = getFiscalYears(7);
+    }
+    //Not so elegant way of forcing the FY period terms
+    if (in_array("14", $years)) $years = getFiscalYears(14);
+    if (in_array("9", $years)) $years = getFiscalYears(9);
+    if (in_array("7", $years)) $years = getFiscalYears(7);
+
+
+  //get top level programs
+  //Use the select control to populate programs
+  if (isset($_REQUEST['sel_programs'])){
+    $tmpParentIDList = $_REQUEST['sel_programs'];
+  }
+  else {
+    //page resubmit and not using select control, use saved parentIDs
+    if (isset($_REQUEST['hdn_ParentIDs'])){
+      $tmpParentIDList = explode(",", $_REQUEST['hdn_ParentIDs']);
+    }
+    //initial visit to the page
+    else $tmpParentIDList = array(0);
+  }
+
+  //get program_type
+  if (isset($_REQUEST['sel_programType'])){
+    $tmpProgramType = $_REQUEST['sel_programType'];
+  }
+  else {
+    //page resubmit and not using select control, use saved programType
+    if (isset($_REQUEST['hdn_programType'])){
+      $tmpProgramType = $_REQUEST['hdn_programType'];
+    }
+    //initial visit to the page
+    else $tmpProgramType = 0;
+  }
+?>
