@@ -1,0 +1,17 @@
+
+.data a:link {
+    text-decoration: none;
+    color: #3C4349;
+}
+.data a:visited {
+    color: #3C4349;
+}
+.data a:hover {
+    text-decoration:underline;
+}
+
+#program_select, #year_select, #period_select {
+    float:left;
+    padding-right:25px;
+    margin-bottom:15px;
+}
