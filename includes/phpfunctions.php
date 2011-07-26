@@ -79,10 +79,12 @@ function getParentProgramName($programID){
 }
 
 //Return an object of program names and IDs for either parent programs or subprograms of a parent
-function returnProgramListing($programID){
+function returnProgramListing($programID, $programType){
   if ($programID == 0) {
     //0 means bring back parent level programs
-    $sSQL = sprintf("SELECT * FROM program WHERE parentID is NULL ORDER BY programID");
+    if ($programType > 0) $tmpProgramFilter = " AND programTypeID = " . $programType;
+    else $tmpProgramFilter = "";
+    $sSQL = sprintf("SELECT * FROM program WHERE parentID is NULL %s ORDER BY programID", $tmpProgramFilter);
   }
   else {
     //get subprograms of a parent

@@ -113,11 +113,25 @@ var pageMetaData = {
     //initial visit to the page
     else $tmpParentIDList = array(0);
   }
+
+  //get program_type
+  if (isset($_REQUEST['sel_programType'])){
+    $tmpProgramType = $_REQUEST['sel_programType'];
+  }
+  else {
+    //page resubmit and not using select control, use saved programType
+    if (isset($_REQUEST['hdn_programType'])){
+      $tmpProgramType = $_REQUEST['hdn_programType'];
+    }
+    //initial visit to the page
+    else $tmpProgramType = 0;
+  }
 ?>
   <form id="frm_budget" name="frm_budget" action="" method="post">
   <?php
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_ParentIDs\"/>", htmlspecialchars(implode(",",$tmpParentIDList)));
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_Years\"/>", htmlspecialchars(implode(",",$years)));
+    printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_programType\"/>", htmlspecialchars($tmpProgramType));
   //only present the form if only one program has been selected
   if (count($tmpParentIDList) == 1){
   ?>
@@ -125,7 +139,7 @@ var pageMetaData = {
 <?php
 
     //create program select control
-    $result = returnProgramListing($tmpParentIDList[0]);
+    $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
     printf("<div>%s</div>",createSelect("programID",
                                         "program_name",
                                         "sel_programs[]",
@@ -153,6 +167,29 @@ var pageMetaData = {
       ?>
       </select>
     </div>
+  <?php
+    //only show program type at top level
+    if (count($tmpParentIDList) == 1 and $tmpParentIDList[0] == 0){
+    ?>
+    <div id="program_type_select">
+      <label for="sel_programType">EERE Program Type</label><br/>
+      <select name="sel_programType" id="sel_programType">
+        <option <?php if ($tmpProgramType == 0) echo " selected ";?>value="0">All EERE Program Types</option>
+        <option <?php if ($tmpProgramType == 1) echo " selected ";?>value="1">Renewable</option>
+        <option <?php if ($tmpProgramType == 2) echo " selected ";?>value="2">Efficiency</option>
+        <option <?php if ($tmpProgramType == 3) echo " selected ";?>value="3">Corporate</option>
+      </select>
+    </div>
+    <?php } ?>
+    <div id="chart_select">
+      <label for="sel_chart">Display Type</label><br/>
+      <select name="sel_chart" id="sel_chart">
+        <option value="0">Tabular</option>
+        <option value="1">Pie</option>
+        <option value="2">Line</option>
+        <option value="3">Column</option>
+      </select>
+    </div>
     <input type="submit" value="Submit"/>
   </form>
 <?php
@@ -161,7 +198,7 @@ var pageMetaData = {
 
   //get parent name for subprograms
   $tmpParentName = getProgramName($tmpParentID);
-  $result = returnProgramListing($tmpParentID);
+  $result = returnProgramListing($tmpParentID, $tmpProgramType);
 ?>
 
 <?php

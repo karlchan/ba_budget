@@ -10,7 +10,7 @@
     text-decoration:underline;
 }
 
-#program_select, #year_select, #period_select {
+#program_select, #year_select, #period_select, #chart_select, #program_type_select {
     float:left;
     padding-right:25px;
     margin-bottom:15px;
