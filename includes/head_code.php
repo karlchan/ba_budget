@@ -84,4 +84,38 @@
     //initial visit to the page
     else $tmpProgramType = 0;
   }
+
+//get chart_type
+  if (isset($_REQUEST['sel_chart'])){
+    $tmpChartTypeID = $_REQUEST['sel_chart'];
+  }
+  else {
+    //page resubmit and not using select control, use saved programType
+    if (isset($_REQUEST['hdn_chartType'])){
+      $tmpChartTypeID = $_REQUEST['hdn_chartType'];
+    }
+    //initial visit to the page
+    else $tmpChartTypeID = 0;
+  }
+
+  switch ($tmpChartTypeID){
+    case 0:
+      //table
+      $tmpFileInclude = "includes/tabular.php";
+      break;
+    case 1:
+      //pie
+      $tmpFileInclude = "includes/pie.php";
+      break;
+    case 2:
+      //line
+      $tmpFileInclude = "includes/line_column.php";
+      $tmpChartType = "line";
+      break;
+    case 3:
+      //column
+      $tmpFileInclude = "includes/line_column.php";
+      $tmpChartType = "column";
+      break;
+  }
 ?>

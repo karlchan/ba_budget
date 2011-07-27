@@ -3,6 +3,7 @@
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_ParentIDs\"/>", htmlspecialchars(implode(",",$tmpParentIDList)));
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_Years\"/>", htmlspecialchars(implode(",",$years)));
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_programType\"/>", htmlspecialchars($tmpProgramType));
+    printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_chartType\"/>", htmlspecialchars($tmpChartTypeID));
   //only present the form if only one program has been selected
   if (count($tmpParentIDList) == 1){
   ?>
@@ -55,11 +56,12 @@
     <div id="chart_select">
       <label for="sel_chart">Display Type</label><br/>
       <select name="sel_chart" id="sel_chart">
-        <option value="0">Tabular</option>
-        <option value="1">Pie</option>
-        <option value="2">Line</option>
-        <option value="3">Column</option>
+        <option <?php if ($tmpChartTypeID == 0) echo " selected ";?>value="0">Tabular</option>
+        <option <?php if ($tmpChartTypeID == 1) echo " selected ";?>value="1">Pie</option>
+        <option <?php if ($tmpChartTypeID == 2) echo " selected ";?>value="2">Line</option>
+        <option <?php if ($tmpChartTypeID == 3) echo " selected ";?>value="3">Column</option>
       </select>
     </div>
     <input type="submit" value="Submit"/>
+  <?php //todo: add reset button ?>
   </form>

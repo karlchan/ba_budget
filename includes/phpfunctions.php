@@ -5,13 +5,7 @@
  * Please include at the top of every page that needs the DB
  */
 
-$con = mysql_connect("localhost","budgetuser","password");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
-mysql_select_db("ba_budget", $con);
-
+require("db.php");
 //require_once('debug/FirePHPCore/fb.php');
 
 //set timezone for all php date functions
