@@ -62,7 +62,7 @@
               //for multiple selections
               if (count($tmpParentIDList) > 1) {
                 foreach ($tmpParentIDList as $tmpParentID) {
-                $result = returnProgramListing($tmpParentID,0);
+                $result = returnProgramListing($tmpParentID, 0);
                 echo "{" . "\n";
                     echo "name:'" . getProgramName($tmpParentID) . "'," . "\ndata:[";
                     foreach($years as $year){

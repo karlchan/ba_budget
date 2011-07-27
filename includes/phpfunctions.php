@@ -56,7 +56,7 @@ function getProgramName($programID){
   }
 }
 
-//get program name
+//get parent program name
 function getParentProgramName($programID){
   $sSQL = sprintf("SELECT parentID FROM program WHERE programID = %d", $programID);
   $result = mysql_query($sSQL);
@@ -69,6 +69,18 @@ function getParentProgramName($programID){
     $result = mysql_query($sSQL);
     if (mysql_num_rows($result) == 0) return "";
     else return mysql_result($result, 0);
+  }
+}
+
+//get program name
+function getParentProgramID($programID){
+  $sSQL = sprintf("SELECT parentID FROM program WHERE programID = %d", $programID);
+  $result = mysql_query($sSQL);
+  if (mysql_num_rows($result) == 0){
+    return 0;
+  }
+  else {
+    return mysql_result($result, 0);
   }
 }
 

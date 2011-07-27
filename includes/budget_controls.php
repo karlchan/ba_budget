@@ -1,4 +1,4 @@
-<form id="frm_budget" name="frm_budget" action="" method="post">
+<form id="frm_budget" name="frm_budget" action="program_budget_formulation.php" method="post">
   <?php
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_ParentIDs\"/>", htmlspecialchars(implode(",",$tmpParentIDList)));
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_Years\"/>", htmlspecialchars(implode(",",$years)));
@@ -26,11 +26,13 @@
     <?php } ?>
     <div id="year_select">
       <label for="sel_years[]">Fiscal Year(s)</label><br/>
-      <select name="sel_years[]" id="sel_years[]" size="5" multiple>
+      <select name="sel_years[]" id="sel_years[]" <?php if ($tmpChartTypeID <> 1) echo "size=\"5\" multiple";?>>
+        <?php if ($tmpChartTypeID <> 1) { ?>
         <option value="14">10 Year Period</option>
         <option value="9">5 Year Period</option>
         <option value="7">3 Year Period</option>
-      <?php
+  <?php
+      }
       foreach(getFiscalYears(0) as $possibleYears){
         echo "<option ";
         if (in_array($possibleYears, $years)) echo "selected ";
@@ -63,5 +65,5 @@
       </select>
     </div>
     <input type="submit" value="Submit"/>
-  <?php //todo: add reset button ?>
+    <input type="button" value="Reset" onclick="javascript:document.location.href='program_budget_formulation.php';"/>
   </form>

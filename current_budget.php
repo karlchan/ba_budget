@@ -168,11 +168,6 @@ while($row = mysql_fetch_array($result))
 				});
 			});
 
-
-
-  //---------------END TEST-------------------
-
-
 </script>
 
   <div id="pie_eere_budget" style="width: 100%; height: 400px"></div>
