@@ -39,6 +39,87 @@ var pageMetaData = {
 <meta name="upd_date" content="<?php echo $strLastUpdated;?>" />
 <meta name="lnav_name" content="Budget Archives" />
 
+  <?php
+  //setup page variables
+  //todo: better navigation between searches
+    if (isset($_REQUEST['sel_years'])){
+      $years = filter_var_array($_REQUEST['sel_years'],FILTER_SANITIZE_STRING);
+    }
+    else {
+      //page resubmit, use previous years from last search
+      if (isset($_REQUEST['hdn_Years'])){
+        $years = explode(",", filter_var($_REQUEST['hdn_Years'],FILTER_SANITIZE_STRING));
+      }
+      //first time on page
+      else $years = getFiscalYears(7);
+    }
+    //Not so elegant way of forcing the FY period terms
+    if (in_array("14", $years)) $years = getFiscalYears(14);
+    if (in_array("9", $years)) $years = getFiscalYears(9);
+    if (in_array("7", $years)) $years = getFiscalYears(7);
+
+
+  //get top level programs
+  //Use the select control to populate programs
+  if (isset($_REQUEST['sel_programs'])){
+    $tmpParentIDList = filter_var_array($_REQUEST['sel_programs'], FILTER_SANITIZE_SPECIAL_CHARS);
+  }
+  else {
+    //page resubmit and not using select control, use saved parentIDs
+    if (isset($_REQUEST['hdn_ParentIDs'])){
+      $tmpParentIDList = explode(",", filter_var($_REQUEST['hdn_ParentIDs'], FILTER_SANITIZE_SPECIAL_CHARS));
+    }
+    //initial visit to the page
+    else $tmpParentIDList = array(0);
+  }
+
+  //get program_type
+  if (isset($_REQUEST['sel_programType'])){
+    $tmpProgramType = filter_var($_REQUEST['sel_programType'],FILTER_SANITIZE_NUMBER_INT);
+  }
+  else {
+    //page resubmit and not using select control, use saved programType
+    if (isset($_REQUEST['hdn_programType'])){
+      $tmpProgramType = filter_var($_REQUEST['hdn_programType'], FILTER_SANITIZE_NUMBER_INT);
+    }
+    //initial visit to the page
+    else $tmpProgramType = 0;
+  }
+
+//get chart_type
+  if (isset($_REQUEST['sel_chart'])){
+    $tmpChartTypeID = filter_var($_REQUEST['sel_chart'], FILTER_SANITIZE_NUMBER_INT);
+  }
+  else {
+    //page resubmit and not using select control, use saved programType
+    if (isset($_REQUEST['hdn_chartType'])){
+      $tmpChartTypeID = filter_var($_REQUEST['hdn_chartType'], FILTER_SANITIZE_NUMBER_INT);
+    }
+    //initial visit to the page
+    else $tmpChartTypeID = 0;
+  }
+
+  switch ($tmpChartTypeID){
+    case 0:
+      //table
+      $tmpFileInclude = "includes/tabular.php";
+      break;
+    case 1:
+      //pie
+      $tmpFileInclude = "includes/pie.php";
+      break;
+    case 2:
+      //line
+      $tmpFileInclude = "includes/line_column.php";
+      $tmpChartType = "line";
+      break;
+    case 3:
+      //column
+      $tmpFileInclude = "includes/line_column.php";
+      $tmpChartType = "column";
+      break;
+  }
+?>
 
 
 </head>
@@ -79,8 +160,74 @@ var pageMetaData = {
     <h1><?php echo $pageHeadline ?></h1>
       <p>Make a selection below to see the EERE Programs.</p>
 
-<?php include("includes/budget_controls.php");?>
+<form id="frm_budget" name="frm_budget" action="program_budget_formulation.php" method="post">
+  <?php
+    printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_ParentIDs\"/>", htmlspecialchars(implode(",",$tmpParentIDList)));
+    printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_Years\"/>", htmlspecialchars(implode(",",$years)));
+    printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_programType\"/>", htmlspecialchars($tmpProgramType));
+    printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_chartType\"/>", htmlspecialchars($tmpChartTypeID));
+  //only present the form if only one program has been selected
+  if (count($tmpParentIDList) == 1){
+  ?>
+    <div id="program_select">
+<?php
 
+    //create program select control
+    $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
+    printf("<div>%s</div>",createSelect("programID",
+                                        "program_name",
+                                        "sel_programs[]",
+                                        "Programs",
+                                        $result,
+                                        "multiple",
+                                        5 ,
+                                        "All EERE Programs",0)
+    );
+?>
+    </div>
+    <?php } ?>
+    <div id="year_select">
+      <label for="sel_years[]">Fiscal Year(s)</label><br/>
+      <select name="sel_years[]" id="sel_years[]" <?php if ($tmpChartTypeID <> 1) echo "size=\"5\" multiple";?>>
+        <?php if ($tmpChartTypeID <> 1) { ?>
+        <option value="14">10 Year Period</option>
+        <option value="9">5 Year Period</option>
+        <option value="7">3 Year Period</option>
+  <?php
+      }
+      foreach(getFiscalYears(0) as $possibleYears){
+        echo "<option ";
+        if (in_array($possibleYears, $years)) echo "selected ";
+        echo "value=\"" . $possibleYears . "\">" . $possibleYears . "</option>\n";
+      }
+      ?>
+      </select>
+    </div>
+  <?php
+    //only show program type at top level
+    if (count($tmpParentIDList) == 1 and $tmpParentIDList[0] == 0){
+    ?>
+    <div id="program_type_select">
+      <label for="sel_programType">EERE Program Type</label><br/>
+      <select name="sel_programType" id="sel_programType">
+        <option <?php if ($tmpProgramType == 0) echo " selected ";?>value="0">All EERE Program Types</option>
+        <option <?php if ($tmpProgramType == 1) echo " selected ";?>value="1">Renewable</option>
+        <option <?php if ($tmpProgramType == 2) echo " selected ";?>value="2">Efficiency</option>
+        <option <?php if ($tmpProgramType == 3) echo " selected ";?>value="3">Corporate</option>
+      </select>
+    </div>
+    <?php } ?>
+    <div id="chart_select">
+      <label for="sel_chart">Display Type</label><br/>
+      <select name="sel_chart" id="sel_chart">
+        <option <?php if ($tmpChartTypeID == 0) echo " selected ";?>value="0">Tabular</option>
+        <option <?php if ($tmpChartTypeID == 1) echo " selected ";?>value="1">Pie</option>
+        <option <?php if ($tmpChartTypeID == 2) echo " selected ";?>value="2">Line</option>
+        <option <?php if ($tmpChartTypeID == 3) echo " selected ";?>value="3">Column</option>
+      </select>
+    </div>
+    <input type="submit" value="Submit"/>
+    <input type="button" value="Reset" onclick="javascript:document.location.href='program_budget_formulation.php';"/>
 <?php include($tmpFileInclude); ?>
 
   </div>
