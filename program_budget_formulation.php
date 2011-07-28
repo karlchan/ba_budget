@@ -185,8 +185,8 @@ var pageMetaData = {
     </div>
     <?php } ?>
     <div id="year_select">
-      <label for="sel_years[]">Fiscal Year(s)</label>
-      <select name="sel_years[]" id="sel_years[]" <?php if ($tmpChartTypeID <> 1) echo "size=\"5\" multiple";?>>
+      <label for="sel_years">Fiscal Year(s)</label>
+      <select name="sel_years[]" id="sel_years" <?php if ($tmpChartTypeID <> 1) echo "size=\"5\" multiple";?>>
         <?php if ($tmpChartTypeID <> 1) { ?>
         <option value="14">10 Year Period</option>
         <option value="9">5 Year Period</option>
