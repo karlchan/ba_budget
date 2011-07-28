@@ -51,8 +51,9 @@ var pageMetaData = {
 
 
 <div id="outer" >
+  <div id="eere_header">
  <?php include("includes/header.php");?>
-</div>
+  </div>
 
 <div id="program_header">
   <?php include("includes/program_header.php"); ?>
@@ -74,11 +75,7 @@ var pageMetaData = {
     </ul>
   </div>
 <!--startindex-->
-  <?php     if($bln3Colmode){ ?>
-  <div class="grid_4" id="maincontent">
-  <?php     } else { ?>
-  <div class="grid_7" id="maincontent">
-  <?php     } ?>
+  <div class="<?php if($bln3Colmode){ echo "grid_4"; } else {echo "grid_7";} ?>" id="maincontent">
     <h1><?php echo $pageHeadline ?></h1>
       <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget.</p>
       <p>* dollars in thousands</p>
@@ -175,6 +172,7 @@ while($row = mysql_fetch_array($result))
   
   </div>
 <!--stopindex-->
+</div>
 </div>
 
 <div id="footer">

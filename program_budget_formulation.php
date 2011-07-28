@@ -129,7 +129,8 @@ var pageMetaData = {
 
 
 <div id="outer" >
- <?php include("includes/header.php");?>
+  <div id="eere_header">
+  <?php include("includes/header.php");?>
 </div>
 
 <div id="program_header">
@@ -152,11 +153,7 @@ var pageMetaData = {
     </ul>
   </div>
 <!--startindex-->
-  <?php     if($bln3Colmode){ ?>
-  <div class="grid_4" id="maincontent">
-  <?php     } else { ?>
-  <div class="grid_7" id="maincontent">
-  <?php     } ?>
+  <div class="<?php if($bln3Colmode){ echo "grid_4"; } else {echo "grid_7";} ?>" id="maincontent">
     <h1><?php echo $pageHeadline ?></h1>
       <p>Make a selection below to see the EERE Program budgeting information and archives.</p>
 <div id="form_container">
@@ -241,6 +238,7 @@ var pageMetaData = {
 
   </div>
 <!--stopindex-->
+</div>
 </div>
 
 <div id="footer">
