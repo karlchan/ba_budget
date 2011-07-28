@@ -46,7 +46,7 @@
 					},
 					tooltip: {
 						formatter: function() {
-				                return '<b>'+ this.series.name +'</b><br/>'+
+				                return '<strong>'+ this.series.name +'</strong><br/>'+
 								this.x +': '+ formatNumber(this.y,0) +' ';
 						}
 					},

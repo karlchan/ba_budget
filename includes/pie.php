@@ -66,7 +66,7 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return '<b>'+ this.point.name +'</b>: ' + formatNumber((this.y/fy_total)*100, 2) + '% ('+ formatNumber(this.y,0) + ')';
+							return '<strong>'+ this.point.name +'</strong>: ' + formatNumber((this.y/fy_total)*100, 2) + '% ('+ formatNumber(this.y,0) + ')';
 						}
 					},
 					plotOptions: {
@@ -78,7 +78,7 @@
 								color: '#000000',
 								connectorColor: '#000000',
 								formatter: function() {
-									return '<b>'+ this.point.name +'</b>';
+									return '<strong>'+ this.point.name +'</strong>';
 								}
 							}
 						}

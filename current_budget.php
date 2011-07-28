@@ -105,7 +105,7 @@ while($row = mysql_fetch_array($result))
       $programNameArray[] = $row['program_name'];
       $currentFYBudgetArray[] = $tmpBudget;
       echo "<tr>" . "\n";
-      echo "<td><a href=\"program_budget_formulation.php?sel_programs[]=". $row['programID'] . "\">" . $row['program_name'] . " &raquo;</a></td>" . "\n";
+      echo "<td><a href=\"program_budget_formulation.php?sel_programs[]=". $row['programID'] . "\">" . htmlspecialchars($row['program_name']) . " &raquo;</a></td>" . "\n";
       echo "<td style=\"text-align:right;\">" . number_format($tmpBudget) . "</td>" . "\n";
       echo "</tr>" . "\n";
     }
@@ -137,7 +137,7 @@ while($row = mysql_fetch_array($result))
 					},
 					tooltip: {
 						formatter: function() {
-							return '<b>'+ this.point.name +'</b>: ' + formatNumber((this.y/fy_total)*100, 2) + '% ('+ formatNumber(this.y,0) + ')';
+							return '<strong>'+ this.point.name +'</strong>: ' + formatNumber((this.y/fy_total)*100, 2) + '% ('+ formatNumber(this.y,0) + ')';
 						}
 					},
 					plotOptions: {
@@ -149,7 +149,7 @@ while($row = mysql_fetch_array($result))
 								color: '#000000',
 								connectorColor: '#000000',
 								formatter: function() {
-									return '<b>'+ this.point.name +'</b>';
+									return '<strong>'+ this.point.name +'</strong>';
 								}
 							}
 						}

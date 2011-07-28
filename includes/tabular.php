@@ -15,20 +15,20 @@
       //mysql_data_seek($result, 0);
     //}
   echo "<br/><p style=\"clear:both;\">* dollars in thousands</p> \n
-      <table class=\"data\" width='100%'>";
+      <table class=\"data\" width='100%' summary='This table contains historical EERE fiscal year budget data for EERE program areas'>";
   if ($tmpParentName <> ""){
     printf("<caption>%s</caption>", $tmpParentName);
   }
   echo "<tr>
-    <th>EERE Program Area</th>";
+    <th scope='col'>EERE Program Area</th>";
   foreach ($years as $year) {
-    printf("<th>FY %s</th>", $year);
+    printf("<th scope='col'>FY %s</th>", $year);
   }
   echo "</tr>";
 
   while($row = mysql_fetch_array($result)) {
       echo "<tr>" . "\n";
-      echo "<td>" . $row['program_name'] . "</td>" . "\n";
+      echo "<td>" . htmlspecialchars($row['program_name']) . "</td>" . "\n";
       foreach($years as $year){
         if ($tmpParentID == 0){
           //get rollup for parent level

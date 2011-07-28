@@ -158,14 +158,15 @@ var pageMetaData = {
   <div class="grid_7" id="maincontent">
   <?php     } ?>
     <h1><?php echo $pageHeadline ?></h1>
-      <p>Make a selection below to see the EERE Programs.</p>
-
+      <p>Make a selection below to see the EERE Program budgeting information and archives.</p>
+<div id="form_container">
 <form id="frm_budget" name="frm_budget" action="program_budget_formulation.php" method="post">
   <?php
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_ParentIDs\"/>", htmlspecialchars(implode(",",$tmpParentIDList)));
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_Years\"/>", htmlspecialchars(implode(",",$years)));
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_programType\"/>", htmlspecialchars($tmpProgramType));
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_chartType\"/>", htmlspecialchars($tmpChartTypeID));
+    printf ("<input type=\"hidden\" name=\"submit\"/>");
   //only present the form if only one program has been selected
   if (count($tmpParentIDList) == 1){
   ?>
@@ -174,7 +175,7 @@ var pageMetaData = {
 
     //create program select control
     $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
-    printf("<div>%s</div>",createSelect("programID",
+    printf("<div>%s</div>",createProgramSelect("programID",
                                         "program_name",
                                         "sel_programs[]",
                                         "Programs",
@@ -187,7 +188,7 @@ var pageMetaData = {
     </div>
     <?php } ?>
     <div id="year_select">
-      <label for="sel_years[]">Fiscal Year(s)</label><br/>
+      <label for="sel_years[]">Fiscal Year(s)</label>
       <select name="sel_years[]" id="sel_years[]" <?php if ($tmpChartTypeID <> 1) echo "size=\"5\" multiple";?>>
         <?php if ($tmpChartTypeID <> 1) { ?>
         <option value="14">10 Year Period</option>
@@ -208,7 +209,7 @@ var pageMetaData = {
     if (count($tmpParentIDList) == 1 and $tmpParentIDList[0] == 0){
     ?>
     <div id="program_type_select">
-      <label for="sel_programType">EERE Program Type</label><br/>
+      <label for="sel_programType">EERE Program Type</label>
       <select name="sel_programType" id="sel_programType">
         <option <?php if ($tmpProgramType == 0) echo " selected ";?>value="0">All EERE Program Types</option>
         <option <?php if ($tmpProgramType == 1) echo " selected ";?>value="1">Renewable</option>
@@ -218,7 +219,7 @@ var pageMetaData = {
     </div>
     <?php } ?>
     <div id="chart_select">
-      <label for="sel_chart">Display Type</label><br/>
+      <label for="sel_chart">Display Type</label>
       <select name="sel_chart" id="sel_chart">
         <option <?php if ($tmpChartTypeID == 0) echo " selected ";?>value="0">Tabular</option>
         <option <?php if ($tmpChartTypeID == 1) echo " selected ";?>value="1">Pie</option>
@@ -226,8 +227,16 @@ var pageMetaData = {
         <option <?php if ($tmpChartTypeID == 3) echo " selected ";?>value="3">Column</option>
       </select>
     </div>
-    <input type="submit" value="Submit"/>
-    <input type="button" value="Reset" onclick="javascript:document.location.href='program_budget_formulation.php';"/>
+
+
+  <input type="button" value="Reset" onclick="javascript:document.location.href='program_budget_formulation.php';" class="controlbutton"/>
+  <input type="submit" value="Submit" name="submit" class="controlbutton"/>
+  <?php if (isset($_POST['submit'])) { ?>
+  <input type="button" value="&laquo; Back" onclick="javascript:window.history.back();" class="controlbutton"/>
+  <?php } ?>
+    </form>
+  </div>
+
 <?php include($tmpFileInclude); ?>
 
   </div>

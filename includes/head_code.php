@@ -8,8 +8,8 @@
 
 <link href="includes/budget.css" rel="stylesheet" type="text/css" />
 
-<meta name="WT.sp" content="/ba/">
-<meta name="DCSext.sp1" content="/ba/pba/">
+<meta name="WT.sp" content="/ba/"/>
+<meta name="DCSext.sp1" content="/ba/pba/"/>
 
 <style type="text/css">
 #topnav li{margin-right:17px;}

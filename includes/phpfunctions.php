@@ -137,7 +137,7 @@ function getBudget_FY_Program($programID, $fiscal_year){
 }
 
 
-function createSelect($tbl_value, $tbl_label, $select_name, $label, $result, $multiple='', $size=5, $all_label, $all_value) {
+function createProgramSelect($tbl_value, $tbl_label, $select_name, $label, $result, $multiple='', $size=5, $all_label, $all_value) {
 
   //setup optionals
   $tmpOptions = "";
@@ -146,15 +146,15 @@ function createSelect($tbl_value, $tbl_label, $select_name, $label, $result, $mu
     $tmpOptions .= " size=\"" . $size . "\"";
   }
 
-  $menu = "<label for=\"".$select_name."\">".$label."</label><br/>\n";
-  $menu .= "<select name=\"".$select_name."\"". $tmpOptions .">\n";
+  $menu = "<label for=\"". $select_name . "\">".$label."</label>\n";
+  $menu .= "<select name=\"". $select_name . "\"". $tmpOptions . " id=\"" . $select_name . "\">\n";
   $menu .= "  <option value=\"" . $all_value . "\"";
   //$menu .= (!isset ($_REQUEST[$select_name])) ? " selected" : "";
   $menu .= ">" . $all_label . "\n";
   while ($obj = mysql_fetch_object($result)) {
       $menu .= "  <option value=\"".$obj->$tbl_value."\"";
       //$menu .= (isset($_REQUEST[$select_name]) && $obj->$tbl_value == $_REQUEST[$select_name]) ? " selected" : "";
-      $menu .= ">".$obj->$tbl_label."\n";
+      $menu .= ">" . htmlspecialchars($obj->$tbl_label) . "\n";
   }
   $menu .= "</select>\n";
 
