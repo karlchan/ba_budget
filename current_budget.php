@@ -89,11 +89,11 @@ $sSQL = sprintf("SELECT * FROM program WHERE parentID is NULL");
 $result = mysql_query($sSQL);
 
 
-echo "<table class=\"data\" width='65%'>
+echo "<table class=\"data\" width='65%' summary='This table displays the EERE fiscal year $current_FY budget for all EERE programs'>
 <caption>EERE FY $current_FY Budget</caption>
 <tr>
-<th>EERE Program Area</th>
-<th style=\"text-align:right;\">$current_FY Budget</th>
+<th scope='col'>EERE Program Area</th>
+<th scope='col' style=\"text-align:right;\">$current_FY Budget</th>
 </tr>";
 
 while($row = mysql_fetch_array($result))
