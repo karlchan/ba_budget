@@ -110,12 +110,24 @@ function returnProgramListing($programID, $programType){
 }
 
 //get TOTAL budget for programID and FY
-function getBudgetRollup_FY_Program($programID, $fiscal_year, $blnAllEERE = false){
+function getBudgetRollup_FY_Program($programID, $fiscal_year, $blnAllEERE = false, $programType = 0){
 
   if ($blnAllEERE) {
-    $sSQL = sprintf("select sum(fy_budget.budget) from fy_budget
+    if ($programType == 0 ) {
+      $sSQL = sprintf("select sum(fy_budget.budget) from fy_budget
                    inner join program on fy_budget.programID = program.programID
                    where fy_budget.fiscal_year = '%s'", $fiscal_year);
+    }
+    else {
+      //need to get totals for a certain program type
+      $sSQL = sprintf("select programID from program where programTypeID = %d", $programType);
+      $result = mysql_query($sSQL);
+      $tmpTotal = 0;
+      while ($obj = mysql_fetch_array($result)) {
+        $tmpTotal += getBudgetRollup_FY_Program($obj['programID'], $fiscal_year);
+      }
+      return $tmpTotal;
+    }
   }
   else {
     $sSQL = sprintf("select sum(fy_budget.budget) from fy_budget

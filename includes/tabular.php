@@ -9,11 +9,6 @@
 
 <?php
 
-//Display table
-    //if (mysql_num_rows($result) > 0) {
-      //reset result set pointer to beginning
-      //mysql_data_seek($result, 0);
-    //}
   echo "<br/><p style=\"clear:both;\">* dollars in thousands</p> \n
       <table class=\"data\" width='100%' summary='This table contains historical EERE fiscal year budget data for EERE program areas'>";
   if ($tmpParentName <> ""){
@@ -47,11 +42,13 @@
       foreach($years as $year){
         if ($tmpParentID == 0){
           //Totals for ALL EERE
-          echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(0, mysql_real_escape_string($year),true)) . "</td>" . "\n";
+          if ($tmpProgramType == 0)
+            echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(0, mysql_real_escape_string($year),true)) . "</td>" . "\n";
+          else
+            echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(0, mysql_real_escape_string($year),true, mysql_escape_string($tmpProgramType))) . "</td>" . "\n";
         }
         else {
           //Totals for Subprogram
-          //todo: fix totals numbers when user selects a EERE program Type
           echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(mysql_real_escape_string($tmpParentID), mysql_real_escape_string($year))) . "</td>" . "\n";
         }
       }
