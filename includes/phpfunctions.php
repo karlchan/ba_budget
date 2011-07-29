@@ -150,11 +150,11 @@ function createProgramSelect($tbl_value, $tbl_label, $select_name, $label, $resu
   $menu .= "<select name=\"". $select_name . "\"". $tmpOptions . " id=\"" . str_replace("[]", "", $select_name) . "\">\n";
   $menu .= "  <option value=\"" . $all_value . "\"";
   //$menu .= (!isset ($_REQUEST[$select_name])) ? " selected" : "";
-  $menu .= ">" . $all_label . "\n";
+  $menu .= ">" . $all_label . "</option>\n";
   while ($obj = mysql_fetch_object($result)) {
       $menu .= "  <option value=\"".$obj->$tbl_value."\"";
       //$menu .= (isset($_REQUEST[$select_name]) && $obj->$tbl_value == $_REQUEST[$select_name]) ? " selected" : "";
-      $menu .= ">" . htmlspecialchars($obj->$tbl_label) . "\n";
+      $menu .= ">" . htmlspecialchars($obj->$tbl_label) . "</option>\n";
   }
   $menu .= "</select>\n";
 
