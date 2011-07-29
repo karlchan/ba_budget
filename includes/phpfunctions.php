@@ -142,7 +142,7 @@ function createProgramSelect($tbl_value, $tbl_label, $select_name, $label, $resu
   //setup optionals
   $tmpOptions = "";
   if ($multiple == "multiple"){
-    $tmpOptions .= " multiple";
+    $tmpOptions .= " multiple='multiple'";
     $tmpOptions .= " size=\"" . $size . "\"";
   }
 

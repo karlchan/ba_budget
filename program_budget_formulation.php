@@ -186,7 +186,7 @@ var pageMetaData = {
     <?php } ?>
     <div id="year_select">
       <label for="sel_years">Fiscal Year(s)</label>
-      <select name="sel_years[]" id="sel_years" <?php if ($tmpChartTypeID <> 1) echo "size=\"5\" multiple";?>>
+      <select name="sel_years[]" id="sel_years" <?php if ($tmpChartTypeID <> 1) echo "size=\"5\" multiple=\"multiple\"";?>>
         <?php if ($tmpChartTypeID <> 1) { ?>
         <option value="14">10 Year Period</option>
         <option value="9">5 Year Period</option>
@@ -195,7 +195,7 @@ var pageMetaData = {
       }
       foreach(getFiscalYears(0) as $possibleYears){
         echo "<option ";
-        if (in_array($possibleYears, $years)) echo "selected ";
+        if (in_array($possibleYears, $years)) echo "selected=\"selected\" ";
         echo "value=\"" . $possibleYears . "\">" . $possibleYears . "</option>\n";
       }
       ?>
@@ -208,20 +208,20 @@ var pageMetaData = {
     <div id="program_type_select">
       <label for="sel_programType">EERE Program Type</label>
       <select name="sel_programType" id="sel_programType">
-        <option <?php if ($tmpProgramType == 0) echo " selected ";?>value="0">All EERE Program Types</option>
-        <option <?php if ($tmpProgramType == 1) echo " selected ";?>value="1">Renewable</option>
-        <option <?php if ($tmpProgramType == 2) echo " selected ";?>value="2">Efficiency</option>
-        <option <?php if ($tmpProgramType == 3) echo " selected ";?>value="3">Corporate</option>
+        <option <?php if ($tmpProgramType == 0) echo " selected=\"selected\" ";?>value="0">All EERE Program Types</option>
+        <option <?php if ($tmpProgramType == 1) echo " selected=\"selected\" ";?>value="1">Renewable</option>
+        <option <?php if ($tmpProgramType == 2) echo " selected=\"selected\" ";?>value="2">Efficiency</option>
+        <option <?php if ($tmpProgramType == 3) echo " selected=\"selected\" ";?>value="3">Corporate</option>
       </select>
     </div>
     <?php } ?>
     <div id="chart_select">
       <label for="sel_chart">Display Type</label>
       <select name="sel_chart" id="sel_chart">
-        <option <?php if ($tmpChartTypeID == 0) echo " selected ";?>value="0">Tabular</option>
-        <option <?php if ($tmpChartTypeID == 1) echo " selected ";?>value="1">Pie</option>
-        <option <?php if ($tmpChartTypeID == 2) echo " selected ";?>value="2">Line</option>
-        <option <?php if ($tmpChartTypeID == 3) echo " selected ";?>value="3">Column</option>
+        <option <?php if ($tmpChartTypeID == 0) echo " selected=\"selected\" ";?>value="0">Tabular</option>
+        <option <?php if ($tmpChartTypeID == 1) echo " selected=\"selected\" ";?>value="1">Pie</option>
+        <option <?php if ($tmpChartTypeID == 2) echo " selected=\"selected\" ";?>value="2">Line</option>
+        <option <?php if ($tmpChartTypeID == 3) echo " selected=\"selected\" ";?>value="3">Column</option>
       </select>
     </div>
 

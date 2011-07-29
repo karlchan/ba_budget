@@ -43,7 +43,7 @@
   }
   //if there are multiple results, show the totals row
   if (mysql_num_rows($result) > 1) {
-    echo "<tr><td style=\"text-align:right; vertical-align:bottom;\"><strong>EERE Totals:</strong></td>\n";
+    echo "<tr><td style=\"text-align:right; vertical-align:bottom;\"><strong>Totals:</strong></td>\n";
       foreach($years as $year){
         if ($tmpParentID == 0){
           //Totals for ALL EERE
@@ -51,6 +51,7 @@
         }
         else {
           //Totals for Subprogram
+          //todo: fix totals numbers when user selects a EERE program Type
           echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(mysql_real_escape_string($tmpParentID), mysql_real_escape_string($year))) . "</td>" . "\n";
         }
       }
