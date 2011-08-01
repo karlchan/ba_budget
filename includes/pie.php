@@ -96,18 +96,30 @@
                 //for multiple selections
               if (count($tmpParentIDList) > 1) {
                 foreach ($tmpParentIDList as $tmpParentID) {
-                $result = returnProgramListing($tmpParentID, 0);
-                echo "[";
-                    echo " '" . getProgramName($tmpParentID) . "'," . " ";
+                  $result = returnProgramListing($tmpParentID, 0);
+                  $tmpDisplayRow = "";
+                  $tmpBudgetTotal = 0;
+                  $tmpDisplayRow .= "[";
+                      $tmpDisplayRow .= " '" . getProgramName($tmpParentID) . "'," . " ";
 
-                      if (mysql_num_rows($result) > 1) //still on a program that can 'drill down'
-                        echo getBudgetRollup_FY_Program(mysql_real_escape_string($tmpParentID), mysql_real_escape_string($years[0])) . ", ";
-                      else //drilled down as far as possible.
-                        echo getBudget_FY_Program(mysql_real_escape_string($tmpParentID), mysql_real_escape_string($years[0])) . ", ";
+                        if (getParentProgramID($tmpParentID) == 0) {
+                        //if (mysql_num_rows($result) > 1) { //still on a program that can 'drill down'
+                          $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($tmpParentID), mysql_real_escape_string($years[0]));
+                          $tmpBudgetTotal += $tmpBudget;
+                          $tmpDisplayRow .= $tmpBudgetTotal . ", ";
 
+                        }
+                        else { //drilled down as far as possible.
+                          $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($tmpParentID), mysql_real_escape_string($years[0]));
+                          $tmpBudgetTotal += $tmpBudget;
+                          $tmpDisplayRow .= $tmpBudgetTotal . ", ";
 
-                  echo "],\n";
-                }
+                        }
+                    $tmpDisplayRow .= "],\n";
+                    if ($tmpBudgetTotal > 0) {
+                      echo $tmpDisplayRow;
+                    }
+                  }
               }
               else {
                 //drill down, only one program selected
@@ -119,17 +131,28 @@
                 }
                 else $result = returnProgramListing($tmpParentIDList[0],0);
                    while($row = mysql_fetch_array($result)) {
-                    echo "['" . $row['program_name'] . "', ";
+                     $tmpDisplayRow = "";
+                     $tmpBudgetTotal = 0;
+                     $tmpDisplayRow .= "['" . $row['program_name'] . "', ";
                       if ($tmpParentIDList[0] == 0){
                         //get rollup for parent level
-                        echo getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($years[0])) . ", ";
+                        $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($years[0]));
+                        $tmpBudgetTotal += $tmpBudget;
+                        $tmpDisplayRow .= $tmpBudgetTotal . ", ";
                       }
                       else {
                         //get budget number for subprogram
-                        echo getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($years[0])) . ", ";
+                        $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($years[0]));
+                        $tmpBudgetTotal += $tmpBudget;
+                        $tmpDisplayRow .= $tmpBudgetTotal . ", ";
+
                       }
 
-                    echo "], \n";
+                      $tmpDisplayRow .= "], \n";
+                     if ($tmpBudgetTotal > 0) {
+                       echo $tmpDisplayRow;
+                     }
+
                 }
 
               }

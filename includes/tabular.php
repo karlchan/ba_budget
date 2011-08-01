@@ -22,19 +22,29 @@
   echo "</tr>";
 
   while($row = mysql_fetch_array($result)) {
-      echo "<tr>" . "\n";
-      echo "<td>" . htmlspecialchars($row['program_name']) . "</td>" . "\n";
+
+      $tmpDisplayRow = "";
+      $tmpBudgetTotal = 0;
+      $tmpDisplayRow .= "<tr>" . "\n";
+      $tmpDisplayRow .= "<td>" . htmlspecialchars($row['program_name']) . "</td>" . "\n";
       foreach($years as $year){
         if ($tmpParentID == 0){
           //get rollup for parent level
-          echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year))) . "</td>" . "\n";
+          $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
+          $tmpBudgetTotal += $tmpBudget;
+          $tmpDisplayRow .= "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format($tmpBudget) . "</td>" . "\n";
         }
         else {
           //get budget number for subprogram
-          echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year))) . "</td>" . "\n";
+          $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
+          $tmpBudgetTotal += $tmpBudget;
+          $tmpDisplayRow .= "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format($tmpBudget) . "</td>" . "\n";
         }
       }
-      echo "</tr>" . "\n";
+      $tmpDisplayRow .= "</tr>" . "\n";
+      if ($tmpBudgetTotal != 0) {
+        echo $tmpDisplayRow;
+      }
   }
   //if there are multiple results, show the totals row
   if (mysql_num_rows($result) > 1) {

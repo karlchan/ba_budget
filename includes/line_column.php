@@ -65,17 +65,30 @@
               //for multiple selections
               if (count($tmpParentIDList) > 1) {
                 foreach ($tmpParentIDList as $tmpParentID) {
-                $result = returnProgramListing($tmpParentID, 0);
-                echo "{" . "\n";
-                    echo "name:'" . getProgramName($tmpParentID) . "'," . "\ndata:[";
-                    foreach($years as $year){
-                      if (mysql_num_rows($result) > 1) //still on a program that can 'drill down'
-                        echo getBudgetRollup_FY_Program(mysql_real_escape_string($tmpParentID), mysql_real_escape_string($year)) . ", ";
-                      else //drilled down as far as possible.
-                        echo getBudget_FY_Program(mysql_real_escape_string($tmpParentID), mysql_real_escape_string($year)) . ", ";
-
+                  $tmpDisplayRow = "";
+                  $tmpBudgetTotal = 0;
+                  $result = returnProgramListing($tmpParentID, 0);
+                  $tmpDisplayRow .= "{" . "\n";
+                  $tmpDisplayRow .= "name:'" . getProgramName($tmpParentID) . "'," . "\ndata:[";
+                  foreach($years as $year){
+                    if (getParentProgramID($tmpParentID) == 0) {
+                    //still on a program that can 'drill down'
+                   
+                      $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($tmpParentID), mysql_real_escape_string($year));
+                      $tmpBudgetTotal += $tmpBudget;
+                      $tmpDisplayRow .= $tmpBudget . ", ";
                     }
-                  echo "]\n} ," . "\n";
+                    else { //drilled down as far as possible.
+                      $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($tmpParentID), mysql_real_escape_string($year));
+                      $tmpBudgetTotal += $tmpBudget;
+                      $tmpDisplayRow .= $tmpBudget . ", ";
+                    }
+                  }
+                  $tmpDisplayRow .= "]\n} ," . "\n";
+                  //only display if totals are not zero
+                  if ($tmpBudgetTotal != 0) {
+                    echo $tmpDisplayRow;
+                  }
                 }
               }
               else {
@@ -87,23 +100,34 @@
                   $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
                 }
                 else $result = returnProgramListing($tmpParentIDList[0],0);
-                   while($row = mysql_fetch_array($result)) {
-                    echo "{" . "\n";
-                    echo "name:'" . $row['program_name'] . "'," . "\ndata:[";
-                    foreach($years as $year){
-                      if ($tmpParentIDList[0] == 0){
-                        //get rollup for parent level
-                        echo getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year)) . ", ";
-                      }
-                      else {
-                        //get budget number for subprogram
-                        echo getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year)) . ", ";
-                      }
-                    }
-                    echo "]\n} ," . "\n";
-                }
+                 while($row = mysql_fetch_array($result)) {
+                   $tmpDisplayRow = "";
+                   $tmpBudgetTotal = 0;
 
-              }
+                   $tmpDisplayRow .= "{" . "\n";
+                   $tmpDisplayRow .= "name:'" . $row['program_name'] . "'," . "\ndata:[";
+                   foreach($years as $year) {
+                     if ($tmpParentIDList[0] == 0) {
+                       //get rollup for parent level
+                       $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
+                       $tmpBudgetTotal += $tmpBudget;
+                       $tmpDisplayRow .= $tmpBudget . ", ";
+                     }
+                     else {
+                       //get budget number for subprogram
+                       $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
+                       $tmpBudgetTotal += $tmpBudget;
+                       $tmpDisplayRow .= $tmpBudget . ", ";
+                     }
+                   }
+                   $tmpDisplayRow .= "]\n} ," . "\n";
+                   //only display if totals are not zero
+                   if ($tmpBudgetTotal != 0 ) {
+                     echo $tmpDisplayRow;
+                   }
+                 }
+
+                }
           ?>]
 
 

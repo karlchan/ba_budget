@@ -72,7 +72,7 @@ function getParentProgramName($programID){
   }
 }
 
-//get program name
+//get parent programID
 function getParentProgramID($programID){
   $sSQL = sprintf("SELECT parentID FROM program WHERE programID = %d", $programID);
   $result = mysql_query($sSQL);
