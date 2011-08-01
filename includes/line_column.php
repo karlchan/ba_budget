@@ -44,6 +44,9 @@
 							color: '#808080'
 						}]
 					},
+          credits: {
+            enabled:false
+          },
 					tooltip: {
 						formatter: function() {
 				                return '<strong>'+ this.series.name +'</strong><br/>'+

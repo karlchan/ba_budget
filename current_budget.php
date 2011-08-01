@@ -128,6 +128,9 @@ while($row = mysql_fetch_array($result))
 					title: {
 						text: 'Current EERE Budget for FY <?php echo $current_FY;?>'
 					},
+          credits: {
+            enabled:false
+          },
           subtitle: {
 						text: '* Dollars in Thousands',
 						x: -20

@@ -64,6 +64,9 @@
 						text: '<?php echo $tmpTotalText . number_format($tmpTotal);?> (Dollars in Thousands)',
 						x: -20
 					},
+          credits: {
+            enabled:false
+          },
 					tooltip: {
 						formatter: function() {
 							return '<strong>'+ this.point.name +'</strong>: ' + formatNumber((this.y/fy_total)*100, 2) + '% ('+ formatNumber(this.y,0) + ')';
