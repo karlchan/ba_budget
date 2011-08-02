@@ -136,7 +136,10 @@ function getBudgetRollup_FY_Program($programID, $fiscal_year, $blnAllEERE = fals
   }
   $result = mysql_query($sSQL);
   if (mysql_num_rows($result) == 0) return 0;
-  else return mysql_result($result, 0);
+  else {
+    if (is_null(mysql_result($result, 0))) return 0;
+    else return mysql_result($result, 0);
+  }
 }
 
 //get budget for a Specific subprogram using ParentID and FY
@@ -171,5 +174,12 @@ function createProgramSelect($tbl_value, $tbl_label, $select_name, $label, $resu
   $menu .= "</select>\n";
 
   return $menu;
+}
+
+function getProgramTypes(){
+  $sSQL = sprintf("SELECT id as programID, type as program_name FROM program_type");
+  $result = mysql_query($sSQL);
+  if (!mysql_num_rows($result)) return 0;
+  else return $result;
 }
 ?>

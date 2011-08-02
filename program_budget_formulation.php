@@ -212,6 +212,7 @@ var pageMetaData = {
         <option <?php if ($tmpProgramType == 1) echo " selected=\"selected\" ";?>value="1">Renewable</option>
         <option <?php if ($tmpProgramType == 2) echo " selected=\"selected\" ";?>value="2">Efficiency</option>
         <option <?php if ($tmpProgramType == 3) echo " selected=\"selected\" ";?>value="3">Corporate</option>
+        <option <?php if ($tmpProgramType == 4) echo " selected=\"selected\" ";?>value="4">Compare All</option>
       </select>
     </div>
     <?php } ?>

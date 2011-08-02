@@ -126,32 +126,41 @@
 
                   //get subprograms for the selected program.
                   //use programType only if at top level EERE
-                if ($tmpParentIDList[0] == 0){
-                  $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
+                if ($tmpParentIDList[0] == 0) {
+                  if ($tmpProgramType != 4) {
+                    //get only programs for a specific program type
+                    $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
+                  }
+                  else $result = getProgramTypes(); //Get only program types.
                 }
                 else $result = returnProgramListing($tmpParentIDList[0],0);
-                   while($row = mysql_fetch_array($result)) {
-                     $tmpDisplayRow = "";
-                     $tmpBudgetTotal = 0;
-                     $tmpDisplayRow .= "['" . $row['program_name'] . "', ";
-                      if ($tmpParentIDList[0] == 0){
-                        //get rollup for parent level
+
+                while($row = mysql_fetch_array($result)) {
+                   $tmpDisplayRow = "";
+                   $tmpBudgetTotal = 0;
+
+                   $tmpDisplayRow .= "['" . $row['program_name'] . "', ";
+                    if ($tmpParentIDList[0] == 0){
+                      //get rollup for parent level
+                      if ($tmpProgramType != 4)
                         $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($years[0]));
-                        $tmpBudgetTotal += $tmpBudget;
-                        $tmpDisplayRow .= $tmpBudgetTotal . ", ";
-                      }
-                      else {
-                        //get budget number for subprogram
-                        $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($years[0]));
-                        $tmpBudgetTotal += $tmpBudget;
-                        $tmpDisplayRow .= $tmpBudgetTotal . ", ";
+                      else
+                        $tmpBudget = getBudgetRollup_FY_Program(0, mysql_real_escape_string($years[0]), true, mysql_real_escape_string($row['programID']));
+                      $tmpBudgetTotal += $tmpBudget;
+                      $tmpDisplayRow .= $tmpBudgetTotal . ", ";
+                    }
+                    else {
+                      //get budget number for subprogram
+                      $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($years[0]));
+                      $tmpBudgetTotal += $tmpBudget;
+                      $tmpDisplayRow .= $tmpBudgetTotal . ", ";
 
-                      }
+                    }
 
-                      $tmpDisplayRow .= "], \n";
-                     if ($tmpBudgetTotal > 0) {
-                       echo $tmpDisplayRow;
-                     }
+                    $tmpDisplayRow .= "], \n";
+                    if ($tmpBudgetTotal > 0) {
+                     echo $tmpDisplayRow;
+                    }
 
                 }
 

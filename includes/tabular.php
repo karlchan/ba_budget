@@ -4,7 +4,9 @@
 
   //get parent name for subprograms
   $tmpParentName = getProgramName($tmpParentID);
-  $result = returnProgramListing($tmpParentID, $tmpProgramType);
+  if ($tmpProgramType != 4)
+    $result = returnProgramListing($tmpParentID, $tmpProgramType);
+  else $result = getProgramTypes(); //Get only program types.
 ?>
 
 <?php
@@ -30,7 +32,10 @@
       foreach($years as $year){
         if ($tmpParentID == 0){
           //get rollup for parent level
-          $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
+          if ($tmpProgramType != 4)
+            $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
+          else
+            $tmpBudget = getBudgetRollup_FY_Program(0, mysql_real_escape_string($year), true, mysql_real_escape_string($row['programID']));
           $tmpBudgetTotal += $tmpBudget;
           $tmpDisplayRow .= "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format($tmpBudget) . "</td>" . "\n";
         }
@@ -52,10 +57,10 @@
       foreach($years as $year){
         if ($tmpParentID == 0){
           //Totals for ALL EERE
-          if ($tmpProgramType == 0)
+          if ($tmpProgramType == 0 or $tmpProgramType == 4)
             echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(0, mysql_real_escape_string($year),true)) . "</td>" . "\n";
           else
-            echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(0, mysql_real_escape_string($year),true, mysql_escape_string($tmpProgramType))) . "</td>" . "\n";
+            echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(0, mysql_real_escape_string($year),true, mysql_real_escape_string($tmpProgramType))) . "</td>" . "\n";
         }
         else {
           //Totals for Subprogram
