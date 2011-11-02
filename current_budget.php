@@ -154,7 +154,6 @@ while($row = mysql_fetch_array($result))
 						pie: {
 							allowPointSelect: true,
 							cursor: 'pointer',
-              size: '50%',
 							dataLabels: {
 								enabled: true,
 								color: '#000000',
