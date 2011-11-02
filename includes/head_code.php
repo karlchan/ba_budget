@@ -1,4 +1,4 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="<?php echo EXT_DIR_PREFIX; ?>/includes/scripts/jsFunctions.js"></script>
 <script type="text/javascript" src="<?php echo EXT_DIR_PREFIX; ?>/includes/scripts/iconreplacement.js"></script>
 <link href="<?php echo EXT_DIR_PREFIX; ?>/includes/reset.css" rel="stylesheet" type="text/css" />
