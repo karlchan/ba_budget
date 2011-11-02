@@ -153,8 +153,7 @@ while($row = mysql_fetch_array($result))
 								enabled: true,
 								color: '#000000',
                 style: {
-                  width: 220,
-                  wordWrap:'break-word',
+                  width: '220px',
                   fontWeight: 'bold'
                 },
 								connectorColor: '#000000',
