@@ -154,6 +154,7 @@ while($row = mysql_fetch_array($result))
 								color: '#000000',
                 style: {
                   width: 220,
+                  wordWrap:'break-word',
                   fontWeight: 'bold'
                 },
 								connectorColor: '#000000',
