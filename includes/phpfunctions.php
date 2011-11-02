@@ -11,8 +11,21 @@ require("db.php");
 //set timezone for all php date functions
 date_default_timezone_set("America/New_York");
 
-//set array of all fiscal years in DB
 
+//get year description for table headers
+//get parent program name
+function getYearDesc($year){
+  $sSQL = sprintf("SELECT description FROM fy_budget WHERE fiscal_year = '%s' LIMIT 1", $year);
+  $result = mysql_query($sSQL);
+  if (mysql_num_rows($result) == 0){
+    return "";
+  }
+  else {
+    return mysql_result($result, 0);
+  }
+}
+
+//set array of all fiscal years in DB
 function getFiscalYears($numColumns){
   //the most current FY has 4 columns need to include that in the calculation
   //for all the return years.

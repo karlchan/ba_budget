@@ -14,7 +14,7 @@ $strLastUpdated = "6/30/2011";
 $strPageID = "70000";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
-$current_FY = "2012 House";
+$current_FY = "2012 Senate";
 $pageHeadline = "Fiscal Year " . $current_FY . " Budget";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -30,6 +30,7 @@ var pageMetaData = {
     last_updated : '<?php echo $strLastUpdated;?>',
     page_title : '<?php echo $pageHeadline ?>'
 };
+
 </script>
 
 <?php include("includes/head_code.php");?>
@@ -41,7 +42,11 @@ var pageMetaData = {
 <meta name="cms_id" content="<?php echo $strPageID;?>" />
 <meta name="upd_date" content="<?php echo $strLastUpdated;?>" />
 <meta name="lnav_name" content="Budget Archives" />
-
+<script type="text/javascript">
+$(document).ready(function() {
+  $('tr:nth-child(odd)').addClass('odd');
+});
+</script>
 
 
 </head>
@@ -109,7 +114,7 @@ while($row = mysql_fetch_array($result))
   }
   printf ("<tr><td style=\"text-align:right;\"><strong><a href=\"program_budget_formulation.php\">EERE Total</a>: </strong></td><td style=\"text-align:right;\">%s</td></tr>", number_format(getBudgetRollup_FY_Program(0, mysql_real_escape_string($current_FY),true)));
   echo "</table>";
-  echo "<p>View EERE budget <a href=\"program_budget_formulation.php\">archives</a>.</p>";
+  echo "<p>View EERE budget <a href=\"program_budget_formulation.php\">historical funding</a>.</p>";
 ?>
   <script type="text/javascript">
 
@@ -147,6 +152,10 @@ while($row = mysql_fetch_array($result))
 							dataLabels: {
 								enabled: true,
 								color: '#000000',
+                style: {
+                  width: 220,
+                  fontWeight: 'bold'
+                },
 								connectorColor: '#000000',
 								formatter: function() {
 									return '<strong>'+ this.point.name +'</strong>';
@@ -160,7 +169,9 @@ while($row = mysql_fetch_array($result))
 						data: [
             <?php
               for ($i = 0; $i < count($programNameArray); $i++) {
-                printf("['%s', %d],\n", $programNameArray[$i], $currentFYBudgetArray[$i]);
+                if ($currentFYBudgetArray[$i] > 0){
+                  printf("['%s', %d],\n", $programNameArray[$i], $currentFYBudgetArray[$i]);
+                }
               }
             ?>
 						]

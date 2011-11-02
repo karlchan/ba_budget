@@ -38,6 +38,11 @@ var pageMetaData = {
 <meta name="cms_id" content="<?php echo $strPageID;?>" />
 <meta name="upd_date" content="<?php echo $strLastUpdated;?>" />
 <meta name="lnav_name" content="Budget Archives" />
+<script type="text/javascript">
+$(document).ready(function() {
+  $('tr:nth-child(odd)').addClass('odd');
+});
+</script>
 
   <?php
   //setup page variables

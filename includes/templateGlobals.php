@@ -24,6 +24,6 @@ define("EXT_DIR_PREFIX", "http://www2.eere.energy.gov");
   1 = current FY Current Approp.
  */
 
-define("FY_OFFSET", 3);
+define("FY_OFFSET", 2);
 
 ?>

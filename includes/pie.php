@@ -41,6 +41,7 @@
 			$(document).ready(function() {
 				chart = new Highcharts.Chart({
 					chart: {
+            marginLeft: 100,
 						renderTo: 'pie_eere_budget',
 						plotBackgroundColor: null,
 						plotBorderWidth: null,
@@ -79,7 +80,11 @@
 							dataLabels: {
 								enabled: true,
 								color: '#000000',
-								connectorColor: '#000000',
+								style: {
+                  width: 170,
+                  fontWeight: 'bold'
+                },
+                connectorColor: '#000000',
 								formatter: function() {
 									return '<strong>'+ this.point.name +'</strong>';
 								}

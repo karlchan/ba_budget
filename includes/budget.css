@@ -30,3 +30,6 @@ label {
     float:right;
     margin-right: 10px;
 }
+.odd {
+    background: #EEEEEE;
+}
