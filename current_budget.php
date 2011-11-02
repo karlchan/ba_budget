@@ -31,6 +31,7 @@ var pageMetaData = {
     page_title : '<?php echo $pageHeadline ?>'
 };
 
+
 </script>
 
 <?php include("includes/head_code.php");?>
@@ -42,6 +43,7 @@ var pageMetaData = {
 <meta name="cms_id" content="<?php echo $strPageID;?>" />
 <meta name="upd_date" content="<?php echo $strLastUpdated;?>" />
 <meta name="lnav_name" content="Budget Archives" />
+
 <script type="text/javascript">
 $(document).ready(function() {
   $('tr:nth-child(odd)').addClass('odd');
@@ -130,11 +132,6 @@ while($row = mysql_fetch_array($result))
 						plotBorderWidth: null,
 						plotShadow: false
 					},
-          labels: {
-            style: {
-              width: '220px'
-            }
-          },
 					title: {
 						text: 'Current EERE Budget for FY <?php echo $current_FY;?>'
 					},
@@ -158,7 +155,7 @@ while($row = mysql_fetch_array($result))
 								enabled: true,
 								color: '#000000',
                 style: {
-                  width: '220px',
+                  width: 220,
                   fontWeight: 'bold'
                 },
 								connectorColor: '#000000',

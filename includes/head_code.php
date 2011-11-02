@@ -4,7 +4,7 @@
 <link href="<?php echo EXT_DIR_PREFIX; ?>/includes/reset.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo EXT_DIR_PREFIX; ?>/includes/main_blue.css" rel="stylesheet" type="text/css" />
 
-<script src="includes/highcharts/highcharts.js" type="text/javascript"></script>
+<script src="includes/highcharts/highcharts2.js" type="text/javascript"></script>
 
 <link href="includes/budget.css" rel="stylesheet" type="text/css" />
 
