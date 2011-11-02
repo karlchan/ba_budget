@@ -130,6 +130,11 @@ while($row = mysql_fetch_array($result))
 						plotBorderWidth: null,
 						plotShadow: false
 					},
+          labels: {
+            style: {
+              width: '220px'
+            }
+          },
 					title: {
 						text: 'Current EERE Budget for FY <?php echo $current_FY;?>'
 					},
