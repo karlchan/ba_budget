@@ -112,7 +112,7 @@
                    $tmpDisplayRow .= "{" . "\n";
                    $tmpDisplayRow .= "name:'" . $row['program_name'] . "'," . "\ndata:[";
                    foreach($years as $year) {
-                     if ($tmpParentIDList[0] == 0) {
+                     //KC: removing subprogram navigation: if ($tmpParentIDList[0] == 0) {
                        //get rollup for parent level
                        if ($tmpProgramType != 4)
                         $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
@@ -120,13 +120,13 @@
                         $tmpBudget = getBudgetRollup_FY_Program(0, mysql_real_escape_string($year), true, mysql_real_escape_string($row['programID']));
                        $tmpBudgetTotal += $tmpBudget;
                        $tmpDisplayRow .= $tmpBudget . ", ";
-                     }
-                     else {
+                     //KC: removing subprogram navigation: }
+                     //KC: removing subprogram navigation: else {
                        //get budget number for subprogram
-                       $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
-                       $tmpBudgetTotal += $tmpBudget;
-                       $tmpDisplayRow .= $tmpBudget . ", ";
-                     }
+                     //KC: removing subprogram navigation:   $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
+                     //KC: removing subprogram navigation:   $tmpBudgetTotal += $tmpBudget;
+                     //KC: removing subprogram navigation:   $tmpDisplayRow .= $tmpBudget . ", ";
+                     //KC: removing subprogram navigation: }
                    }
                    $tmpDisplayRow .= "]\n} ," . "\n";
                    //only display if totals are not zero
@@ -146,5 +146,9 @@
 
 		</script>
 
-
+<?php
+if ((count($tmpParentIDList) == 1) && ($tmpParentIDList[0] != 0)){
+echo "<h3 style='text-align:center; color:red; clear:both'>Please select more than one program</h3>";
+}
+?>
   <div id="container" style="width: 100%; height: 700px; clear:both;"></div>

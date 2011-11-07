@@ -10,7 +10,7 @@ include("includes/phpfunctions.php");
 include("includes/templateGlobals.php");
 
 //Page specific variables, see templateGlobals.php for more variables and constant definitions
-$strLastUpdated = "6/30/2011";
+$strLastUpdated = "11/07/2011";
 $strPageID = "70000";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
@@ -70,9 +70,37 @@ $(document).ready(function() {
   <div id="utility_line" class="clearfix">
     <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="/ba/index.html"><?php echo $strProgramName;?></a> &raquo; Budget</div>
 
-    <ul id="utilities" class="nositemap">
-      <li id="print"><a id="printversion" href="/ba/printable_versions/about.html">Printable Version</a></li>
-      <li id="share"><!-- AddThis Button BEGIN --><script type="text/javascript">var addthis_config = {"data_track_clickback":true, ui_click:true};</script><a class="addthis_button" href="http://addthis.com/bookmark.php?v=250&amp;username=addthiseere"><img src="http://s7.addthis.com/static/btn/sm-share-en.gif" width="83" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=addthiseere"></script><!-- AddThis Button END --></li>
+    <ul id="utilities_508" class="nositemap">
+      <!--<li id="print"><a id="printversion" href="#">Printable Version</a></li>-->
+      <li id="share">
+         <ul>
+            <li class="addthis_toolbar"><span class="addthis_button_508">Share</span> <span class="invisible">this resource</span>
+              <ul class="addthis_list">
+                <li>
+                  <a class="email" href="http://api.addthis.com/oexchange/0.8/forward/email/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Send a link to Planning, Budget and Analysis: <?php echo $pageHeadline ?> to someone by </span>E-mail</a>
+                </li>
+                <li>
+                  <a class="facebook" href="http://api.addthis.com/oexchange/0.8/forward/facebook/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Share Planning, Budget and Analysis: <?php echo $pageHeadline ?> on </span>Facebook</a>
+                </li>
+                <li>
+                  <a class="twitter" href="http://api.addthis.com/oexchange/0.8/forward/twitter/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Tweet about Planning, Budget and Analysis: <?php echo $pageHeadline ?> on </span>Twitter</a>
+                </li>
+                <li>
+                  <a class="google" href="http://api.addthis.com/oexchange/0.8/forward/google/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Bookmark Planning, Budget and Analysis: <?php echo $pageHeadline ?> on </span>Google</a>
+                </li>
+                <li>
+                  <a class="delicious" href="http://api.addthis.com/oexchange/0.8/forward/delicious/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Bookmark Planning, Budget and Analysis: <?php echo $pageHeadline ?> on </span>Delicious</a>
+                </li>
+                <li>
+                  <a class="digg" href="http://api.addthis.com/oexchange/0.8/forward/digg/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Rank Planning, Budget and Analysis: <?php echo $pageHeadline ?> on </span>Digg</a>
+                </li>
+                <li>
+                  <a class="more" href="http://api.addthis.com/oexchange/0.8/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Find </span>More<span class="invisible"> places to share Planning, Budget and Analysis: <?php echo $pageHeadline ?> on AddThis.com&#8230;</span></a>
+                </li>
+              </ul>
+            </li>
+         </ul>
+      </li>
     </ul>
   </div>
 
@@ -109,7 +137,8 @@ while($row = mysql_fetch_array($result))
       $programNameArray[] = $row['program_name'];
       $currentFYBudgetArray[] = $tmpBudget;
       echo "<tr>" . "\n";
-      echo "<td><a href=\"program_budget_formulation.php?sel_programs[]=". $row['programID'] . "\">" . htmlspecialchars($row['program_name']) . " &raquo;</a></td>" . "\n";
+      //KC: removing subprogram navigation: echo "<td><a href=\"program_budget_formulation.php?sel_programs[]=". $row['programID'] . "\">" . htmlspecialchars($row['program_name']) . " &raquo;</a></td>" . "\n";
+      echo "<td>" . htmlspecialchars($row['program_name']) . "</td>" . "\n";
       echo "<td style=\"text-align:right;\">" . number_format($tmpBudget) . "</td>" . "\n";
       echo "</tr>" . "\n";
     }
@@ -195,9 +224,7 @@ while($row = mysql_fetch_array($result))
   <?php include("includes/footer.php");?>
 </div>
 
-<script language="JavaScript" src="/includes/nrel_eere.js" type="text/javascript"></script>
-<script language="JavaScript" src="/includes/countpdfs.js" type="text/javascript"></script>
-<script language="javascript" type="text/javascript">set_printable_version();</script>
+<script language="JavaScript" src="<?php echo EXT_DIR_PREFIX; ?>/includes/nrel_eere.js" type="text/javascript"></script>
 <?php
   mysql_close($con);
   ?>

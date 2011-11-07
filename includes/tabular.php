@@ -30,7 +30,7 @@
       $tmpDisplayRow .= "<tr>" . "\n";
       $tmpDisplayRow .= "<td>" . htmlspecialchars($row['program_name']) . "</td>" . "\n";
       foreach($years as $year){
-        if ($tmpParentID == 0){
+        //KC: removing subprogram navigation: if ($tmpParentID == 0){
           //get rollup for parent level
           if ($tmpProgramType != 4)
             $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
@@ -38,13 +38,13 @@
             $tmpBudget = getBudgetRollup_FY_Program(0, mysql_real_escape_string($year), true, mysql_real_escape_string($row['programID']));
           $tmpBudgetTotal += $tmpBudget;
           $tmpDisplayRow .= "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format($tmpBudget) . "</td>" . "\n";
-        }
-        else {
+        //KC: removing subprogram navigation: }
+        //KC: removing subprogram navigation: else {
           //get budget number for subprogram
-          $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
-          $tmpBudgetTotal += $tmpBudget;
-          $tmpDisplayRow .= "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format($tmpBudget) . "</td>" . "\n";
-        }
+          //KC: removing subprogram navigation: $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
+          //KC: removing subprogram navigation: $tmpBudgetTotal += $tmpBudget;
+          //KC: removing subprogram navigation: $tmpDisplayRow .= "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format($tmpBudget) . "</td>" . "\n";
+        //KC: removing subprogram navigation: }
       }
       $tmpDisplayRow .= "</tr>" . "\n";
       if ($tmpBudgetTotal != 0) {
