@@ -10,7 +10,7 @@ jQuery(document).ready(function() {
 });
 </script>
   
-<script src="https://raw.github.com/highslide-software/highcharts.com/master/js/highcharts.src.js" type="text/javascript"></script>
+<script src="includes/highcharts/highcharts.js" type="text/javascript"></script>
 
 <link href="includes/budget.css" rel="stylesheet" type="text/css" />
 
