@@ -10,7 +10,7 @@ define("TEMPLATE_COLOR",    "green");
 define("IS_PROGRAM",         true);
 
 //Program Name
-define("PROGRAM_NAME",       "Planning, Budget and Analysis");
+define("PROGRAM_NAME",       "Office of Budget");
 
 //External Directory Prefix, used for getting external resources that are not in the root directory on localhost
 define("EXT_DIR_PREFIX", "http://www2.eere.energy.gov");

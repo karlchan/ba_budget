@@ -38,7 +38,7 @@ var pageMetaData = {
 
 
 
-<title>Planning, Budget and Analysis: <?php echo $pageHeadline ?></title>
+<title><?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?></title>
 
 <meta name="cms_id" content="<?php echo $strPageID;?>" />
 <meta name="upd_date" content="<?php echo $strLastUpdated;?>" />
@@ -77,25 +77,25 @@ $(document).ready(function() {
             <li class="addthis_toolbar"><span class="addthis_button_508">Share</span> <span class="invisible">this resource</span>
               <ul class="addthis_list">
                 <li>
-                  <a class="email" href="http://api.addthis.com/oexchange/0.8/forward/email/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Send a link to Planning, Budget and Analysis: <?php echo $pageHeadline ?> to someone by </span>E-mail</a>
+                  <a class="email" href="http://api.addthis.com/oexchange/0.8/forward/email/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=<?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Send a link to <?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?> to someone by </span>E-mail</a>
                 </li>
                 <li>
-                  <a class="facebook" href="http://api.addthis.com/oexchange/0.8/forward/facebook/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Share Planning, Budget and Analysis: <?php echo $pageHeadline ?> on </span>Facebook</a>
+                  <a class="facebook" href="http://api.addthis.com/oexchange/0.8/forward/facebook/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=<?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Share <?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?> on </span>Facebook</a>
                 </li>
                 <li>
-                  <a class="twitter" href="http://api.addthis.com/oexchange/0.8/forward/twitter/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Tweet about Planning, Budget and Analysis: <?php echo $pageHeadline ?> on </span>Twitter</a>
+                  <a class="twitter" href="http://api.addthis.com/oexchange/0.8/forward/twitter/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=<?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Tweet about <?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?> on </span>Twitter</a>
                 </li>
                 <li>
-                  <a class="google" href="http://api.addthis.com/oexchange/0.8/forward/google/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Bookmark Planning, Budget and Analysis: <?php echo $pageHeadline ?> on </span>Google</a>
+                  <a class="google" href="http://api.addthis.com/oexchange/0.8/forward/google/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=<?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Bookmark <?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?> on </span>Google</a>
                 </li>
                 <li>
-                  <a class="delicious" href="http://api.addthis.com/oexchange/0.8/forward/delicious/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Bookmark Planning, Budget and Analysis: <?php echo $pageHeadline ?> on </span>Delicious</a>
+                  <a class="delicious" href="http://api.addthis.com/oexchange/0.8/forward/delicious/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=<?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Bookmark <?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?> on </span>Delicious</a>
                 </li>
                 <li>
-                  <a class="digg" href="http://api.addthis.com/oexchange/0.8/forward/digg/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Rank Planning, Budget and Analysis: <?php echo $pageHeadline ?> on </span>Digg</a>
+                  <a class="digg" href="http://api.addthis.com/oexchange/0.8/forward/digg/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=<?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Rank <?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?> on </span>Digg</a>
                 </li>
                 <li>
-                  <a class="more" href="http://api.addthis.com/oexchange/0.8/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=Planning, Budget and Analysis: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Find </span>More<span class="invisible"> places to share Planning, Budget and Analysis: <?php echo $pageHeadline ?> on AddThis.com&#8230;</span></a>
+                  <a class="more" href="http://api.addthis.com/oexchange/0.8/offer?username=addthiseere&amp;url=www4.eere.energy.gov/ba/pba/current_budget.php&amp;title=<?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?>" target="_blank"><span class="invisible">Find </span>More<span class="invisible"> places to share <?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?> on AddThis.com&#8230;</span></a>
                 </li>
               </ul>
             </li>
