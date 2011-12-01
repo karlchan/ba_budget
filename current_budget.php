@@ -68,7 +68,7 @@ $(document).ready(function() {
 
 <div id="content">
   <div id="utility_line" class="clearfix">
-    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="/ba/index.html"><?php echo $strProgramName;?></a> &raquo; Budget</div>
+    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo SITE_HOME_URL; ?>"><?php echo $strProgramName;?></a></div>
 
     <ul id="utilities_508" class="nositemap">
       <!--<li id="print"><a id="printversion" href="#">Printable Version</a></li>-->

@@ -174,7 +174,7 @@ function createProgramSelect($tbl_value, $tbl_label, $select_name, $label, $resu
     $tmpOptions .= " size=\"" . $size . "\"";
   }
 
-  $menu = "<label for=\"". str_replace("[]", "", $select_name) . "\">".$label."</label>\n";
+  $menu = "<label class=\"budget_control\" for=\"". str_replace("[]", "", $select_name) . "\">".$label."</label>\n";
   $menu .= "<select name=\"". $select_name . "\"". $tmpOptions . " id=\"" . str_replace("[]", "", $select_name) . "\">\n";
   $menu .= "  <option value=\"" . $all_value . "\"";
   //$menu .= (!isset ($_REQUEST[$select_name])) ? " selected" : "";

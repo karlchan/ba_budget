@@ -144,7 +144,7 @@ $(document).ready(function() {
 
 <div id="content">
   <div id="utility_line" class="clearfix">
-    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="/ba/index.html"><?php echo $strProgramName;?></a> &raquo; Budget</div>
+    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo SITE_HOME_URL; ?>"><?php echo $strProgramName;?></a></div>
 
     <ul id="utilities" class="nositemap">
       <!--<li id="print"><a id="printversion" href="/ba/printable_versions/about.html">Printable Version</a></li>-->
@@ -219,7 +219,7 @@ $(document).ready(function() {
     </div>
     <?php } ?>
     <div id="year_select">
-      <label for="sel_years">Fiscal Year(s)</label>
+      <label class="budget_control" for="sel_years">Fiscal Year(s)</label>
       <select name="sel_years[]" id="sel_years" <?php if ($tmpChartTypeID <> 1) echo "size=\"5\" multiple=\"multiple\"";?>>
         <?php if ($tmpChartTypeID <> 1) { ?>
         <option value="14">10 Year Period</option>
@@ -240,7 +240,7 @@ $(document).ready(function() {
     if (count($tmpParentIDList) == 1 and $tmpParentIDList[0] == 0){
     ?>
     <div id="program_type_select">
-      <label for="sel_programType">EERE Program Type</label>
+      <label class="budget_control" for="sel_programType">EERE Program Type</label>
       <select name="sel_programType" id="sel_programType">
         <option <?php if ($tmpProgramType == 0) echo " selected=\"selected\" ";?>value="0">All EERE Program Types</option>
         <option <?php if ($tmpProgramType == 1) echo " selected=\"selected\" ";?>value="1">Renewable</option>
@@ -251,7 +251,7 @@ $(document).ready(function() {
     </div>
     <?php } ?>
     <div id="chart_select">
-      <label for="sel_chart">Display Type</label>
+      <label class="budget_control" for="sel_chart">Display Type</label>
       <select name="sel_chart" id="sel_chart">
         <option <?php if ($tmpChartTypeID == 0) echo " selected=\"selected\" ";?>value="0">Tabular</option>
         <option <?php if ($tmpChartTypeID == 1) echo " selected=\"selected\" ";?>value="1">Pie</option>
