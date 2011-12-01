@@ -32,7 +32,14 @@
 						x: -20
 					},
 					xAxis: {
-						categories: ['<?php echo implode("', '", $years);?>']
+            <?php
+              //following code helps set up display for FY
+              $tmpYears = array();
+              foreach($years as $tmpYear){
+                array_push($tmpYears, fy_forDisplay($tmpYear));
+              }
+            ?>
+						categories: ['<?php echo implode("', '", $tmpYears);?>']
 					},
 					yAxis: {
 						title: {

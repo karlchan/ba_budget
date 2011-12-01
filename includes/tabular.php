@@ -19,7 +19,7 @@
   echo "<tr>
     <th scope='col'>EERE Program Area</th>";
   foreach ($years as $year) {
-    printf("<th scope='col'>FY %s</th>", $year);
+    printf("<th scope='col'>FY %s</th>", fy_forDisplay($year));
   }
   echo "</tr>";
 

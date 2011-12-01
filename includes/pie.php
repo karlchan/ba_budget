@@ -50,14 +50,14 @@
 					title: {
 						text: '<?php
                       if (count($tmpParentIDList) == 1) {
-                        if ($tmpParentIDList[0] == 0) $tmpParentName = "EERE Budget for FY " . $years[0];
-                        else $tmpParentName = sprintf("%s Budget for FY %s", getProgramName($tmpParentIDList[0]), $years[0]);
+                        if ($tmpParentIDList[0] == 0) $tmpParentName = "EERE Budget for FY " . fy_forDisplay($years[0]);
+                        else $tmpParentName = sprintf("%s Budget for FY %s", getProgramName($tmpParentIDList[0]), fy_forDisplay($years[0]));
                       }
                       //get the parent program, just send the first programID
 
                     else {
-                      $tmpParentName = sprintf("%s Budget for FY %s", getParentProgramName($tmpParentIDList[0]), $years[0]);
-                      if ($tmpParentName == "") $tmpParentName = "EERE Budget for FY " . $years[0];
+                      $tmpParentName = sprintf("%s Budget for FY %s", getParentProgramName($tmpParentIDList[0]), fy_forDisplay($years[0]));
+                      if ($tmpParentName == "") $tmpParentName = "EERE Budget for FY " . fy_forDisplay($years[0]);
                     }
                     echo $tmpParentName;?>'
 					},

@@ -57,6 +57,18 @@ function getFiscalYears($numColumns){
   return $tmpReturnArray;
 }
 
+
+//Alter fiscal year for display. If it is just a year (or numeric), it means that it is that fiscal year's final
+//appropriation. Add the text to the year only. Otherwise, just send back the FY text untouched.
+function fy_forDisplay($fy){
+  if (is_numeric($fy)){
+    return $fy . " Appropriation";
+  }
+  else {
+    return $fy;
+  }
+}
+
 //get program name
 function getProgramName($programID){
   $sSQL = sprintf("SELECT program_name FROM program WHERE programID = %d", $programID);
