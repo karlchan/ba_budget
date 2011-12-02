@@ -16,6 +16,8 @@
 						text: '<?php
                       if (count($tmpParentIDList) == 1) {
                         if ($tmpParentIDList[0] == 0) $tmpParentName = "EERE Budget";
+                        //KC: removing subprogram navigation: New if statement, when reverting, uncomment above, and delete the following statement
+                        //if ($tmpParentIDList[0] == 0 || $tmpProgramType != 0) $tmpParentName = "EERE Budget";
                         else $tmpParentName = getProgramName($tmpParentIDList[0]);
                       }
                       //get the parent program, just send the first programID
@@ -71,10 +73,17 @@
             <?php
               //for multiple selections
               if (count($tmpParentIDList) > 1) {
+              //KC: removing subprogram navigation: New if statement to account for programtypes (remove if you want sub program navigation again, and uncomment the if statement above)
+              //if ($tmpProgramType == 0 && $tmpParentIDList[0] != 0) {
+
                 foreach ($tmpParentIDList as $tmpParentID) {
                   $tmpDisplayRow = "";
                   $tmpBudgetTotal = 0;
+
+
                   $result = returnProgramListing($tmpParentID, 0);
+                  
+
                   $tmpDisplayRow .= "{" . "\n";
                   $tmpDisplayRow .= "name:'" . getProgramName($tmpParentID) . "'," . "\ndata:[";
                   foreach($years as $year){
@@ -98,20 +107,29 @@
                   }
                 }
               }
+
               else {
                 //drill down, only one program selected
 
                   //get subprograms for the selected program.
                   //use programType only if at top level EERE
                 if ($tmpParentIDList[0] == 0){
+                //KC: removing subprogram navigation: force array reset: added the next line
+                //$tmpParentIDList = array(0);
                   if ($tmpProgramType != 4) {
                     //get only programs for a specific program type
+
                     $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
+
                   }
                   else $result = getProgramTypes(); //Get only program types.
 
                 }
-                else $result = returnProgramListing($tmpParentIDList[0],0);
+
+                //KC: removing subprogram navigation: ORIGINAL: else $result = returnProgramListing($tmpParentIDList[0],0);
+                //just set $result to the one program. remove the next line when reverting.
+                else $result = returnProgram($tmpParentIDList[0]);
+
                  while($row = mysql_fetch_array($result)) {
                    $tmpDisplayRow = "";
                    $tmpBudgetTotal = 0;
@@ -119,7 +137,7 @@
                    $tmpDisplayRow .= "{" . "\n";
                    $tmpDisplayRow .= "name:'" . $row['program_name'] . "'," . "\ndata:[";
                    foreach($years as $year) {
-                     //KC: removing subprogram navigation: if ($tmpParentIDList[0] == 0) {
+                     if ($tmpParentIDList[0] == 0) {
                        //get rollup for parent level
                        if ($tmpProgramType != 4)
                         $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
@@ -127,13 +145,16 @@
                         $tmpBudget = getBudgetRollup_FY_Program(0, mysql_real_escape_string($year), true, mysql_real_escape_string($row['programID']));
                        $tmpBudgetTotal += $tmpBudget;
                        $tmpDisplayRow .= $tmpBudget . ", ";
-                     //KC: removing subprogram navigation: }
-                     //KC: removing subprogram navigation: else {
+                     }
+                     else {
                        //get budget number for subprogram
-                     //KC: removing subprogram navigation:   $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
-                     //KC: removing subprogram navigation:   $tmpBudgetTotal += $tmpBudget;
-                     //KC: removing subprogram navigation:   $tmpDisplayRow .= $tmpBudget . ", ";
-                     //KC: removing subprogram navigation: }
+                        //KC: removing subprogram navigation: ORIGINAL: $tmpBudget = getBudget_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
+                        //get the rollup number for the one program in the array. - remove the next line when reverting.
+                        $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($tmpParentIDList[0]), mysql_real_escape_string($year));
+
+                        $tmpBudgetTotal += $tmpBudget;
+                        $tmpDisplayRow .= $tmpBudget . ", ";
+                     }
                    }
                    $tmpDisplayRow .= "]\n} ," . "\n";
                    //only display if totals are not zero
@@ -154,8 +175,8 @@
 		</script>
 
 <?php
-if ((count($tmpParentIDList) == 1) && ($tmpParentIDList[0] != 0)){
-echo "<h3 style='text-align:center; color:red; clear:both'>Please select more than one program</h3>";
-}
+//if ((count($tmpParentIDList) == 1) && ($tmpParentIDList[0] != 0)){
+//echo "<h3 style='text-align:center; color:red; clear:both'>Please select more than one program</h3>";
+//}
 ?>
   <div id="container" style="width: 100%; height: 700px; clear:both;"></div>

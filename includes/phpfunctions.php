@@ -134,6 +134,14 @@ function returnProgramListing($programID, $programType){
   return $result;
 }
 
+//KC: removing subprogram navigation: this function just returns the one program.
+function returnProgram($programID) {
+  $sSQL = sprintf("SELECT * FROM program WHERE programID = %d", $programID);
+  $result = mysql_query($sSQL);
+  return $result;
+}
+
+
 //get TOTAL budget for programID and FY
 function getBudgetRollup_FY_Program($programID, $fiscal_year, $blnAllEERE = false, $programType = 0){
 
