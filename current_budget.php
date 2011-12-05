@@ -113,7 +113,7 @@ $(document).ready(function() {
   <div class="<?php if($bln3Colmode){ echo "grid_4"; } else {echo "grid_7";} ?>" id="maincontent">
     <h1><?php echo $pageHeadline ?></h1>
       <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget.</p>
-      <p><em>NOTE:</em> By using or accessing this website you are accepting all the terms of this [disclaimer notice].  The content of this site is provided in good faith.  Every effort is made to ensure that the contents of this website is accurate.  There may be instances where funding levels may change due to modifications in appropriation language or funding request.  In that event, the website will be updated accordingly.</p>
+      <p><em>NOTE:</em> By using or accessing this website you are accepting all the terms of this <em>disclaimer notice</em>:  The content of this site is provided in good faith.  Every effort is made to ensure that the contents of this website is accurate.  There may be instances where funding levels may change due to modifications in appropriation language or funding request.  In that event, the website will be updated accordingly.</p>
       <p>* dollars in thousands</p>
 <?php
 
