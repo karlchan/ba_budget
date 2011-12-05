@@ -14,7 +14,9 @@ $strPageID = "70001";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
 $current_FY = "2010";
-$pageHeadline = "EERE Budget Formulation"
+$pageHeadline = "EERE Budget Formulation";
+//set if you need client to see subprogram breakdown (tabular only)
+$blnNumberCheckMode = false;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -122,6 +124,10 @@ $(document).ready(function() {
       //column
       $tmpFileInclude = "includes/line_column.php";
       $tmpChartType = "column";
+      break;
+    case 4:
+      //table - Number check mode
+      $tmpFileInclude = "includes/tabular_check.php";
       break;
   }
 ?>
@@ -258,6 +264,13 @@ $(document).ready(function() {
         <option <?php if ($tmpChartTypeID == 1) echo " selected=\"selected\" ";?>value="1">Pie</option>
         <option <?php if ($tmpChartTypeID == 2) echo " selected=\"selected\" ";?>value="2">Line</option>
         <option <?php if ($tmpChartTypeID == 3) echo " selected=\"selected\" ";?>value="3">Column</option>
+        <?php
+          if ($blnNumberCheckMode) {
+            ?>
+        <option <?php if ($tmpChartTypeID == 4) echo " selected=\"selected\" ";?>value="4">#'s Check</option>
+            <?php
+          }
+        ?>
       </select>
     </div>
 
