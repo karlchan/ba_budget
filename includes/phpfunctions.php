@@ -62,7 +62,11 @@ function getFiscalYears($numColumns){
 //appropriation. Add the text to the year only. Otherwise, just send back the FY text untouched.
 function fy_forDisplay($fy){
   if (is_numeric($fy)){
-    return $fy . " Appropriation";
+    //custom naming before Appropriation is 'Enacted', this will probably be changed on a year to year basis
+    if ($fy == 2012)
+      return $fy . " Enacted";
+    else
+      return $fy . " Appropriation";
   }
   else {
     return $fy;

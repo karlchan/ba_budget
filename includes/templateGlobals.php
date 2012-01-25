@@ -33,6 +33,6 @@ define("SITE_HOME_URL", "/office_eere/index.html");
   1 = current FY Current Approp.
  */
 
-define("FY_OFFSET", 2);
+define("FY_OFFSET", 1);
 
 ?>
