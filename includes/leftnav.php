@@ -12,4 +12,5 @@
 <li><a href="<?php echo EXT_DIR_PREFIX; ?>/office_eere/congressional_test.html">Congressional Testimony</a></li>
 <li><a href="<?php echo EXT_DIR_PREFIX; ?>/office_eere/sbir.html">Small Business Innovation Research Program</a></li>
 <li><a href="<?php echo EXT_DIR_PREFIX; ?>/office_eere/careers_redirect.html">Careers</a></li>
+<li><a href="<?php echo EXT_DIR_PREFIX; ?>/office_eere/faqs.html">FAQs</a></li>
 <li><a href="<?php echo EXT_DIR_PREFIX; ?>/office_eere/contacts.html">Contacts</a></li>
