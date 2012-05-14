@@ -35,7 +35,10 @@ function getFiscalYears($numColumns){
   $sSQL = sprintf("select distinct fiscal_year from fy_budget");
   $result = mysql_query($sSQL);
   while ($row = mysql_fetch_array($result, MYSQL_NUM)){
-    array_push($tmpArray, $row[0]);
+    // only add the current FY data, ignore old 'request', 'house', and 'senate' data
+    if ((strpos($row[0], (string)CURRENT_FY) !== false) or (is_numeric($row[0])) or (strpos($row[0], "ARRA"))) {
+      array_push($tmpArray, $row[0]);
+    }
   }
 
   //calculate the offset array, $numColumns == 0 means get all years.

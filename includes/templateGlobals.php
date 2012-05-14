@@ -27,12 +27,14 @@ define("SITE_HOME_URL", "/office_eere/index.html");
 /*
  * FY offset, This constant makes sure that the data does not display current FY data that has not yet been determined
  * This number signifies the most current FY stage that HAS data.
-  4 = current FY Request
-  3 = current FY House
-  2 = current FY Senate
-  1 = current FY Current Approp.
+  3 = current FY Request
+  2 = current FY House
+  1 = current FY Senate
+  0 = current FY Current Approp.
  */
 
 define("FY_OFFSET", 1);
+
+define("CURRENT_FY", 2013);
 
 ?>
