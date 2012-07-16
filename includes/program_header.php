@@ -27,12 +27,13 @@
     //example top nav below: ?>
     <div id="topnav">
       <ul>
-        <li id="tn_home"><a href="<?php echo EXT_DIR_PREFIX; ?>/ba/pba/index.html">HOME</a></li>
-        <li id="tn_about"><a href="<?php echo EXT_DIR_PREFIX; ?>/ba/pba/about.html">ABOUT</a></li>
-        <li id="tn_planning" ><a href="<?php echo EXT_DIR_PREFIX; ?>/ba/pba/planning.html">PLANNING</a></li>
-        <li id="tn_budgeting" class="current" ><a href="<?php echo EXT_DIR_PREFIX; ?>/ba/pba/budgeting.html">BUDGETING</a></li>
-        <li id="tn_performance" ><a href="<?php echo EXT_DIR_PREFIX; ?>/ba/pba/performance_evaluation.html">PERFORMANCE &amp; EVALUATION</a></li>
-        <li id="tn_data"><a href="<?php echo EXT_DIR_PREFIX; ?>/ba/pba/data_analysis.html">DATA &amp; ANALYSIS</a></li>
+        <li id="tn_home"><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/index.html">HOME</a></li>
+        <li id="tn_about" class="current"><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_main.html">ABOUT</a></li>
+        <li id="tn_energy" ><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/ee_main.html">ENERGY EFFICIENCY</a></li>
+        <li id="tn_renewable" ><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/re_main.html">RENEWABLE ENERGY</a></li>
+        <li id="tn_business" ><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/bo_main.html">BUSINESS OPERATIONS</a></li>
+        <li id="tn_strategic"><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/sp_main.html">STRATEGIC PROGRAMS</a></li>
+        <li id="tn_initiatives"><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_projects_main.html">INITIATIVES &amp; PROJECTS</a></li>
       </ul>
     </div>
   <?php } //endif ?>

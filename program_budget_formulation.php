@@ -9,14 +9,14 @@ include("includes/phpfunctions.php");
 include("includes/templateGlobals.php");
 
 //Page specific variables
-$strLastUpdated = "11/07/2011";
+$strLastUpdated = "7/16/2012";
 $strPageID = "70001";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
 $current_FY = "2013 Senate";
 $pageHeadline = "EERE Budget Formulation";
 //set if you need client to see subprogram breakdown (tabular only)
-$blnNumberCheckMode = true;
+$blnNumberCheckMode = false;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -150,7 +150,7 @@ $(document).ready(function() {
 
 <div id="content">
   <div id="utility_line" class="clearfix">
-    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo SITE_HOME_URL; ?>"><?php echo $strProgramName;?></a></div>
+    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo SITE_HOME_URL; ?>"><?php echo $strProgramName;?></a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_main.html">About</a></div>
 
     <ul id="utilities" class="nositemap">
       <!--<li id="print"><a id="printversion" href="/ba/printable_versions/about.html">Printable Version</a></li>-->
