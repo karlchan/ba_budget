@@ -20,26 +20,32 @@ jQuery(document).ready(function() {
 <style type="text/css">
 #topnav li{margin-right:17px;}
 
-#tn_home {min-width:67px; width:67px;}
-#topnav li#tn_home a{width:67px;}
+
+#tn_home {min-width:76px; width:76px;}
+#topnav li#tn_home a{width:76px;}
 
 
-#tn_about {min-width:98px; width:98px;}
-#topnav li#tn_about a{width:98px;}
+#tn_about {min-width:80px; width:80px;}
+#topnav li#tn_about a{width:80px;}
 
 
-#tn_planning {min-width:100px; width:100px;}
-#topnav li#tn_planning a{width:100px;}
+#tn_energy {min-width:98px; width:98px;}
+#topnav li#tn_energy a{width:98px;}
 
 
-#tn_budgeting {min-width:100px; width:100px;}
-#topnav li#tn_budgeting a{width:100px;}
+#tn_renewable {min-width:108px; width:108px;}
+#topnav li#tn_renewable a{width:108px;}
 
 
-#tn_performance {min-width:200px; width:200px;}
-#topnav li#tn_performance a{width:200px;}
+#tn_business {min-width:108px; width:108px;}
+#topnav li#tn_business a{width:108px;}
 
-#tn_data {min-width:160px; width:160px;}
-#topnav li#tn_data a{width:160px;}
+
+#tn_strategic {min-width:104px; width:104px;}
+#topnav li#tn_strategic a{width:104px;}
+
+
+#tn_initiatives {min-width:114px; width:114px;}
+#topnav li#tn_initiatives a{width:114px;}
 
 </style>

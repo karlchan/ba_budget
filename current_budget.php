@@ -1,6 +1,5 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
  * User: karl
  * Date: 6/30/11
  * Time: 9:26 AM
@@ -10,7 +9,7 @@ include("includes/phpfunctions.php");
 include("includes/templateGlobals.php");
 
 //Page specific variables, see templateGlobals.php for more variables and constant definitions
-$strLastUpdated = "11/07/2011";
+$strLastUpdated = "7/16/2012";
 $strPageID = "70000";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
@@ -68,7 +67,7 @@ $(document).ready(function() {
 
 <div id="content">
   <div id="utility_line" class="clearfix">
-    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo SITE_HOME_URL; ?>"><?php echo $strProgramName;?></a></div>
+    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo SITE_HOME_URL; ?>"><?php echo $strProgramName;?></a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_main.html">About</a></div>
 
     <ul id="utilities_508" class="nositemap">
       <!--<li id="print"><a id="printversion" href="#">Printable Version</a></li>-->
@@ -112,7 +111,7 @@ $(document).ready(function() {
 <!--startindex-->
   <div class="<?php if($bln3Colmode){ echo "grid_4"; } else {echo "grid_7";} ?>" id="maincontent">
     <h1><?php echo $pageHeadline ?></h1>
-      <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget.</p>
+      <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget. See also <a  href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/pdfs/fy2013_eere_congressional_budget_request.pdf ">EERE's FY 2013 Congressional Budget Request <img width="13" height="14" class="arrowicon" alt="PDF"  src="<?php echo EXT_DIR_PREFIX; ?>/images/icon_pdf.gif" alt="PDF Format"/></a>.</p>
       <p><em>NOTE:</em> By using or accessing this website you are accepting all the terms of this <em>disclaimer notice</em>:  The content of this site is provided in good faith.  Every effort is made to ensure that the contents of this website is accurate.  There may be instances where funding levels may change due to modifications in appropriation language or funding request.  In that event, the website will be updated accordingly.</p>
       <p>* dollars in thousands</p>
 <?php
