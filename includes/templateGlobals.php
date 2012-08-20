@@ -13,10 +13,10 @@ define("IS_PROGRAM",         true);
 define("PROGRAM_NAME",       "Office of EERE");
 
 //External Directory Prefix, used for getting external resources that are not in the root directory on localhost
-define("EXT_DIR_PREFIX", "http://www2.eere.energy.gov");
+define("EXT_DIR_PREFIX", "http://www1.eere.energy.gov");
 
 //Root directory structure
-define("WEB_ROOT", "/office_eere2");
+define("WEB_ROOT", "/office_eere");
 
 //Search url string
 define("SEARCH_STRING", "url:eere.energy.gov/office_eere/");
