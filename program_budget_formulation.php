@@ -194,7 +194,7 @@ $(document).ready(function() {
 <!--startindex-->
   <div class="<?php if($bln3Colmode){ echo "grid_4"; } else {echo "grid_7";} ?>" id="maincontent">
     <h1><?php echo $pageHeadline ?></h1>
-      <p>Make a selection below to see the EERE Program budgeting information and archives.</p>
+      <p>Make a selection below to see EERE budgeting information and archives.</p>
       <p><em>NOTE:</em> By using or accessing this website you are accepting all the terms of this <em>disclaimer notice</em>:  The content of this site is provided in good faith.  Every effort is made to ensure that the contents of this website is accurate.  There may be instances where funding levels may change due to modifications in appropriation language or funding request.  In that event, the website will be updated accordingly.</p>
 <div id="form_container">
 <form id="frm_budget" name="frm_budget" action="program_budget_formulation.php" method="post">
@@ -220,7 +220,7 @@ $(document).ready(function() {
                                         $result,
                                         "multiple",
                                         5 ,
-                                        "All EERE Programs",0)
+                                        "All EERE Areas",0)
     );
 ?>
     </div>
@@ -247,9 +247,9 @@ $(document).ready(function() {
     if (count($tmpParentIDList) == 1 and $tmpParentIDList[0] == 0){
     ?>
     <div id="program_type_select">
-      <label class="budget_control" for="sel_programType">EERE Program Type</label>
+      <label class="budget_control" for="sel_programType">EERE Office Type</label>
       <select name="sel_programType" id="sel_programType">
-        <option <?php if ($tmpProgramType == 0) echo " selected=\"selected\" ";?>value="0">All EERE Program Types</option>
+        <option <?php if ($tmpProgramType == 0) echo " selected=\"selected\" ";?>value="0">All EERE Office Types</option>
         <option <?php if ($tmpProgramType == 1) echo " selected=\"selected\" ";?>value="1">Renewable</option>
         <option <?php if ($tmpProgramType == 2) echo " selected=\"selected\" ";?>value="2">Efficiency</option>
         <option <?php if ($tmpProgramType == 3) echo " selected=\"selected\" ";?>value="3">Corporate</option>

@@ -17,7 +17,7 @@
     printf("<caption>%s</caption>", $tmpParentName);
   }
   echo "<tr>
-    <th scope='col'>EERE Program Area</th>";
+    <th scope='col'>EERE Area</th>";
   foreach ($years as $year) {
     printf("<th scope='col'>FY %s</th>", fy_forDisplay($year));
   }
