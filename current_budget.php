@@ -111,7 +111,7 @@ $(document).ready(function() {
 <!--startindex-->
   <div class="<?php if($bln3Colmode){ echo "grid_4"; } else {echo "grid_7";} ?>" id="maincontent">
     <h1><?php echo $pageHeadline ?></h1>
-      <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget. See also <a  href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/pdfs/fy2013_eere_congressional_budget_request.pdf ">EERE's FY 2013 Congressional Budget Request <img width="13" height="14" class="arrowicon" alt="PDF"  src="<?php echo EXT_DIR_PREFIX; ?>/images/icon_pdf.gif" alt="PDF Format"/></a>.</p>
+      <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget. See also <a href="http://www.cfo.doe.gov/budget/13budget/Content/Volume3.pdf">EERE's FY 2013 Congressional Budget Request <img width="13" height="14" class="arrowicon" alt="PDF"  src="<?php echo EXT_DIR_PREFIX; ?>/images/icon_pdf.gif" alt="PDF Format"/></a>.</p>
       <p><em>NOTE:</em> By using or accessing this website you are accepting all the terms of this <em>disclaimer notice</em>:  The content of this site is provided in good faith.  Every effort is made to ensure that the contents of this website is accurate.  There may be instances where funding levels may change due to modifications in appropriation language or funding request.  In that event, the website will be updated accordingly.</p>
       <p>* dollars in thousands</p>
 <?php
