@@ -13,7 +13,7 @@ $strLastUpdated = "7/16/2012";
 $strPageID = "70000";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
-$current_FY = "2013 Senate";
+$current_FY = "2014 Request";
 $pageHeadline = "Fiscal Year " . $current_FY . " Budget";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -111,10 +111,10 @@ $(document).ready(function() {
 <!--startindex-->
   <div class="<?php if($bln3Colmode){ echo "grid_4"; } else {echo "grid_7";} ?>" id="maincontent">
     <h1><?php echo $pageHeadline ?></h1>
-    <div class="callout">
-      <p>The Office of Energy Efficiency and Renewable Energy (EERE) xxxxx <br/><a href="<?php echo EXT_DIR_PREFIX; ?>/office_eere/bo_budget_fy14.html">EERE's 2014 fiscal year budget request</a></p>
-    </div>
-      <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget. See also <a href="http://www.cfo.doe.gov/budget/13budget/Content/Volume3.pdf">EERE's FY 2013 Congressional Budget Request <img width="13" height="14" class="arrowicon" alt="PDF"  src="<?php echo EXT_DIR_PREFIX; ?>/images/icon_pdf.gif" alt="PDF Format"/></a>.</p>
+    <!--<div class="callout">
+      <p>The Office of Energy Efficiency and Renewable Energy (EERE) xxxxx <br/><a href="http://www2.eere.energy.gov/office_eere/bo_budget_fy14.html">EERE's 2014 fiscal year budget request</a></p>
+    </div>-->
+      <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget. See also <a href="http://www2.eere.energy.gov/office_eere/bo_budget_fy14.html">EERE's FY 2014 Congressional Budget Request<!--<img width="13" height="14" class="arrowicon" alt="PDF"  src="<?php echo EXT_DIR_PREFIX; ?>/images/icon_pdf.gif" alt="PDF Format"/>--></a>.</p>
       <p><em>NOTE:</em> By using or accessing this website you are accepting all the terms of this <em>disclaimer notice</em>:  The content of this site is provided in good faith.  Every effort is made to ensure that the contents of this website is accurate.  There may be instances where funding levels may change due to modifications in appropriation language or funding request.  In that event, the website will be updated accordingly.</p>
       <p>* dollars in thousands</p>
 <?php
