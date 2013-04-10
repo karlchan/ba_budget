@@ -6,6 +6,6 @@
     <li><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/bo_budget_archives.html">Archives</a></li>
   </ul>
 </li>
-<li><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_employment.html">Employment Opportunities at EERE</a></li>
+<li><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_employment.html">Employment Opportunities</a></li>
 <li><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_faqs.html">FAQs</a></li>
 <li><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_contacts.html">Contacts</a></li>
