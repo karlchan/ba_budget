@@ -1,8 +1,9 @@
 <?php
-  $wip_shown = false;
+  
   //Loop through each program that has been selected
   foreach ($tmpParentIDList as $tmpParentID) {
 
+  $wip_shown = false;
   //get parent name for subprograms
   $tmpParentName = getProgramName($tmpParentID);
   if($tmpParentName == "Weatherization and Intergovernmental Activities")
