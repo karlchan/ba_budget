@@ -66,10 +66,18 @@ function getFiscalYears($numColumns){
 function fy_forDisplay($fy){
   if (is_numeric($fy)){
     //custom naming before Appropriation is 'Enacted', this will probably be changed on a year to year basis
-    if ($fy == 2012)
-      return $fy . " Enacted";
-    else
-      return $fy . " Appropriation";
+    switch ($fy){
+      case 2012:
+        $fy = $fy . " Enacted";
+        break;
+      case 2013:
+        $fy = $fy . " Annualized CR";
+        break;
+      default:
+        $fy = $fy . " Appropriation";
+    }
+    
+    return $fy;
   }
   else {
     return $fy;

@@ -13,7 +13,7 @@ $strLastUpdated = "7/16/2012";
 $strPageID = "70001";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
-$current_FY = "2013 Senate";
+$current_FY = "2014 Request";
 $pageHeadline = "EERE Budget Formulation";
 //set if you need client to see subprogram breakdown (tabular only)
 $blnNumberCheckMode = false;
@@ -58,12 +58,12 @@ $(document).ready(function() {
         $years = explode(",", filter_var($_REQUEST['hdn_Years'],FILTER_SANITIZE_STRING));
       }
       //first time on page
-      else $years = getFiscalYears(7);
+      else $years = getFiscalYears(THREE_YEAR);
     }
     //Not so elegant way of forcing the FY period terms
-    if (in_array("14", $years)) $years = getFiscalYears(14);
-    if (in_array("9", $years)) $years = getFiscalYears(9);
-    if (in_array("7", $years)) $years = getFiscalYears(7);
+    if (in_array(TEN_YEAR, $years)) $years = getFiscalYears(TEN_YEAR);
+    if (in_array(FIVE_YEAR, $years)) $years = getFiscalYears(FIVE_YEAR);
+    if (in_array(THREE_YEAR, $years)) $years = getFiscalYears(THREE_YEAR);
 
 
   //get top level programs
@@ -229,9 +229,9 @@ $(document).ready(function() {
       <label class="budget_control" for="sel_years">Fiscal Year(s)</label>
       <select name="sel_years[]" id="sel_years" <?php if ($tmpChartTypeID <> 1) echo "size=\"5\" multiple=\"multiple\"";?>>
         <?php if ($tmpChartTypeID <> 1) { ?>
-        <option value="14">10 Year Period</option>
-        <option value="9">5 Year Period</option>
-        <option value="7">3 Year Period</option>
+        <option value="<?php echo TEN_YEAR;?>">10 Year Period</option>
+        <option value="<?php echo FIVE_YEAR;?>">5 Year Period</option>
+        <option value="<?php echo THREE_YEAR;?>">3 Year Period</option>
   <?php
       }
       foreach(getFiscalYears(0) as $possibleYears){
