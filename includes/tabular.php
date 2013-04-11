@@ -1,9 +1,12 @@
 <?php
+  $wip_shown = false;
   //Loop through each program that has been selected
   foreach ($tmpParentIDList as $tmpParentID) {
 
   //get parent name for subprograms
   $tmpParentName = getProgramName($tmpParentID);
+  if($tmpParentName == "Weatherization and Intergovernmental Activities")
+    $wip_shown = true;
   if ($tmpProgramType != 4)
     $result = returnProgramListing($tmpParentID, $tmpProgramType);
   else $result = getProgramTypes(); //Get only program types.
@@ -18,17 +21,25 @@
   }
   echo "<tr>
     <th scope='col'>EERE Area</th>";
+  $col_count = 1;
   foreach ($years as $year) {
     printf("<th scope='col'>FY %s</th>", fy_forDisplay($year));
+    $col_count++;
   }
   echo "</tr>";
-
+  
+  
   while($row = mysql_fetch_array($result)) {
 
       $tmpDisplayRow = "";
       $tmpBudgetTotal = 0;
       $tmpDisplayRow .= "<tr>" . "\n";
-      $tmpDisplayRow .= "<td>" . htmlspecialchars($row['program_name']) . "</td>" . "\n";
+      $programNameDisplay = htmlspecialchars($row['program_name']);
+      if ($programNameDisplay == "Weatherization and Intergovernmental Activities") {
+        $programNameDisplay = $programNameDisplay . " *";
+        $wip_shown = true;
+      }
+      $tmpDisplayRow .= "<td>" . $programNameDisplay . "</td>" . "\n";
       foreach($years as $year){
         //KC: removing subprogram navigation: if ($tmpParentID == 0){
           //get rollup for parent level
@@ -68,6 +79,13 @@
         }
       }
     echo "</tr>\n";
+  }
+  
+  
+  //special row for WIP Control Points
+  if ($wip_shown){
+  echo "<tr class=\"wip_control_points\">
+          <td colspan=\"".$col_count."\" style=\"font-size:85%;\">* WIP is comprised of 3 Programs, with statutory controls and funds appropriated under these areas. In FY 12, amounts were $68 million for the Weatherization Assistance Program (WAP), $50 million for the State Energy Program (SEP), and $10 million for the Tribal Energy Program (TEP). In FY 13, amounts were $68.4 million for WAP, $50.3 million for SEP, and $10 million for TEP. In FY 14, our budget request includes for WAP, $184 million, for SEP $57 million, and $7 million for TEP.</td></tr>";
   }
 echo "</table>\n";
 } //end foreach loop
