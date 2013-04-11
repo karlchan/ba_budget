@@ -44,6 +44,4 @@ define("THREE_YEAR", 4);
 define("FIVE_YEAR", 6);
 define("TEN_YEAR", 11);
 
-
-
 ?>
