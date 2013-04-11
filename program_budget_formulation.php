@@ -9,7 +9,7 @@ include("includes/phpfunctions.php");
 include("includes/templateGlobals.php");
 
 //Page specific variables
-$strLastUpdated = "7/16/2012";
+$strLastUpdated = "4/11/2013";
 $strPageID = "70001";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
