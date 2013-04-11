@@ -68,7 +68,7 @@ function fy_forDisplay($fy){
     //custom naming before Appropriation is 'Enacted', this will probably be changed on a year to year basis
     switch ($fy){
       case 2012:
-        $fy = $fy . " Enacted";
+        $fy = $fy . " Current";
         break;
       case 2013:
         $fy = $fy . " Annualized CR";
