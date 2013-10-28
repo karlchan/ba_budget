@@ -36,8 +36,8 @@ define("SITE_HOME_URL", WEB_ROOT . "/index.html");
   0 = current FY Current Approp.
  */
 
-define("FY_OFFSET", 1);
+define("FY_OFFSET", 0);
 
-define("CURRENT_FY", 2013);
+define("CURRENT_FY", 2014);
 
 ?>

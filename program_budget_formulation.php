@@ -13,7 +13,7 @@ $strLastUpdated = "7/16/2012";
 $strPageID = "70001";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
-$current_FY = "2013 Senate";
+$current_FY = "2013";
 $pageHeadline = "EERE Budget Formulation";
 //set if you need client to see subprogram breakdown (tabular only)
 $blnNumberCheckMode = false;
