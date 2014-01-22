@@ -1,4 +1,5 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+
 <script type="text/javascript" src="<?php echo EXT_DIR_PREFIX; ?>/includes/scripts/jsFunctions.js"></script>
 <script type="text/javascript" src="<?php echo EXT_DIR_PREFIX; ?>/includes/scripts/iconreplacement.js"></script>
 <link href="<?php echo EXT_DIR_PREFIX; ?>/includes/reset.css" rel="stylesheet" type="text/css" />
@@ -11,8 +12,10 @@ jQuery(document).ready(function() {
 </script>
   
 <script src="includes/highcharts/highcharts.js" type="text/javascript"></script>
+<script src="includes/tree.js" type="text/javascript"></script>
 
 <link href="includes/budget.css" rel="stylesheet" type="text/css" />
+
 
 <meta name="WT.sp" content="/ba/"/>
 <meta name="DCSext.sp1" content="/ba/pba/"/>

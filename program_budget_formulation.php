@@ -33,18 +33,11 @@ var pageMetaData = {
 };
 </script>
 
-<?php include("includes/head_code.php");?>
-
 <title><?php echo PROGRAM_NAME?>: <?php echo $pageHeadline ?></title>
 
 <meta name="cms_id" content="<?php echo $strPageID;?>" />
 <meta name="upd_date" content="<?php echo $strLastUpdated;?>" />
 <meta name="lnav_name" content="Budget Archives" />
-<script type="text/javascript">
-$(document).ready(function() {
-  $('tr:nth-child(odd)').addClass('odd');
-});
-</script>
 
   <?php
   //setup page variables
@@ -129,6 +122,10 @@ $(document).ready(function() {
       //table - Number check mode
       $tmpFileInclude = "includes/tabular_check.php";
       break;
+    case 5:
+      //tree
+      $tmpFileInclude = "includes/tree.php";
+      break;
   }
 ?>
 
@@ -198,6 +195,21 @@ $(document).ready(function() {
       <p><em>NOTE:</em> By using or accessing this website you are accepting all the terms of this <em>disclaimer notice</em>:  The content of this site is provided in good faith.  Every effort is made to ensure that the contents of this website is accurate.  There may be instances where funding levels may change due to modifications in appropriation language or funding request.  In that event, the website will be updated accordingly.</p>
 <div id="form_container">
 <form id="frm_budget" name="frm_budget" action="program_budget_formulation.php" method="post">
+<?php 
+if ($tmpChartTypeID == 5) 
+{
+	include("includes/head_code_tree.php");
+}
+else 
+{
+	include("includes/head_code.php");
+}?>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('tr:nth-child(odd)').addClass('odd');
+});
+
+</script>
   <?php
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_ParentIDs\"/>", htmlspecialchars(implode(",",$tmpParentIDList)));
     printf ("<input type=\"hidden\" value=\"%s\" name=\"hdn_Years\"/>", htmlspecialchars(implode(",",$years)));
@@ -227,8 +239,8 @@ $(document).ready(function() {
     <?php } ?>
     <div id="year_select">
       <label class="budget_control" for="sel_years">Fiscal Year(s)</label>
-      <select name="sel_years[]" id="sel_years" <?php if ($tmpChartTypeID <> 1) echo "size=\"5\" multiple=\"multiple\"";?>>
-        <?php if ($tmpChartTypeID <> 1) { ?>
+      <select name="sel_years[]" id="sel_years" <?php if ($tmpChartTypeID <> 1 && $tmpChartTypeID <> 5) echo "size=\"5\" multiple=\"multiple\"";?>>
+        <?php if ($tmpChartTypeID <> 1 && $tmpChartTypeID <> 5) { ?>
         <option value="<?php echo TEN_YEAR;?>">10 Year Period</option>
         <option value="<?php echo FIVE_YEAR;?>">5 Year Period</option>
         <option value="<?php echo THREE_YEAR;?>">3 Year Period</option>
@@ -260,10 +272,11 @@ $(document).ready(function() {
     <div id="chart_select">
       <label class="budget_control" for="sel_chart">Display Type</label>
       <select name="sel_chart" id="sel_chart">
-        <option <?php if ($tmpChartTypeID == 0) echo " selected=\"selected\" ";?>value="0">Tabular</option>
-        <option <?php if ($tmpChartTypeID == 1) echo " selected=\"selected\" ";?>value="1">Pie</option>
-        <option <?php if ($tmpChartTypeID == 2) echo " selected=\"selected\" ";?>value="2">Line</option>
-        <option <?php if ($tmpChartTypeID == 3) echo " selected=\"selected\" ";?>value="3">Column</option>
+        <option <?php if ($tmpChartTypeID == 0) echo " selected=\"selected\" ";?> value="0">Tabular</option>
+        <option <?php if ($tmpChartTypeID == 1) echo " selected=\"selected\" ";?> value="1">Pie</option>
+        <option <?php if ($tmpChartTypeID == 2) echo " selected=\"selected\" ";?> value="2">Line</option>
+        <option <?php if ($tmpChartTypeID == 3) echo " selected=\"selected\" ";?> value="3">Column</option>
+		<option <?php if ($tmpChartTypeID == 5) echo " selected=\"selected\" ";?> value="5">Tree</option>
         <?php
           if ($blnNumberCheckMode) {
             ?>
@@ -283,7 +296,7 @@ $(document).ready(function() {
     </form>
   </div>
 
-<?php include($tmpFileInclude); ?>
+<?php include($tmpFileInclude);  ?>
 
   </div>
 <!--stopindex-->
