@@ -15,9 +15,10 @@ jQuery(document).ready(function() {
 
 <link href="includes/budget.css" rel="stylesheet" type="text/css" />
 
+
 <script type="text/javascript" src="includes/jqwidgets/jqxcore.js"></script>
 <script type="text/javascript" src="includes/jqwidgets/jqxtooltip.js"></script>
 <script type="text/javascript" src="includes/jqwidgets/jqxtreemap.js"></script>
 <script type="text/javascript" src="includes/jqwidgets/gettheme.js"></script>
-<link rel="stylesheet" href="includes/jqwidgets/jqx.base.css" />
+<link rel="stylesheet" href="includes/jqwidgets/jqx.base.css" type="text/css" />
 
