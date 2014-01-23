@@ -1,4 +1,4 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script src="includes/jqwidgets/jquery-1.10.2.min.js" type="text/javascript"></script>
 
 <script type="text/javascript" src="<?php echo EXT_DIR_PREFIX; ?>/includes/scripts/jsFunctions.js"></script>
 <script type="text/javascript" src="<?php echo EXT_DIR_PREFIX; ?>/includes/scripts/iconreplacement.js"></script>
@@ -14,7 +14,6 @@ jQuery(document).ready(function() {
 <script src="includes/tree.js" type="text/javascript"></script>
 
 <link href="includes/budget.css" rel="stylesheet" type="text/css" />
-
 
 <script type="text/javascript" src="includes/jqwidgets/jqxcore.js"></script>
 <script type="text/javascript" src="includes/jqwidgets/jqxtooltip.js"></script>
