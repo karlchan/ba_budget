@@ -38,6 +38,8 @@ var pageMetaData = {
 <meta name="cms_id" content="<?php echo $strPageID;?>" />
 <meta name="upd_date" content="<?php echo $strLastUpdated;?>" />
 <meta name="lnav_name" content="Budget Archives" />
+<link href="<?php echo EXT_DIR_PREFIX; ?>/includes/reset.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo EXT_DIR_PREFIX; ?>/includes/main_blue.css" rel="stylesheet" type="text/css" />
 
   <?php
   //setup page variables
