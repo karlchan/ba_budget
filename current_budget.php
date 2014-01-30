@@ -34,6 +34,8 @@ var pageMetaData = {
 </script>
 
 <?php include("includes/head_code.php");?>
+<link href="<?php echo EXT_DIR_PREFIX; ?>/includes/reset.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo EXT_DIR_PREFIX; ?>/includes/main_blue.css" rel="stylesheet" type="text/css" />
 
 
 
