@@ -12,7 +12,7 @@
 
 #program_select, #year_select, #period_select, #chart_select, #program_type_select {
     float:left;
-    padding-right:25px;
+    padding-right:20px;
     margin-bottom:15px;
 }
 #form_container {
