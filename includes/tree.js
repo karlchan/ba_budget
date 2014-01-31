@@ -17,5 +17,5 @@ $(document).ready(function() {
 		
 	};
 	sel_chart_OnChange();
-	$('#sel_chart').click( function() { sel_chart_OnChange() } );	
+	$('#sel_chart').click( function() { sel_chart_OnChange(); } );	
 });
