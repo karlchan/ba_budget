@@ -32,6 +32,7 @@
 							echo $programRowContent;
 						}
 					}
+					echo "{ label: 'NA', value: 0, parent: 'Renewable', data: { description: 'NA', title: 'NA'} }, ";
 				?>
             ];
 
