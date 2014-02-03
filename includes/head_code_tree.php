@@ -9,9 +9,8 @@ jQuery(document).ready(function() {
 });
 </script>
 
-<script src="includes/tree.js" type="text/javascript"></script>
-
 <link href="includes/budget.css" rel="stylesheet" type="text/css" />
+<?php include("includes/display.php"); ?>
 
 
 <script type="text/javascript" src="includes/jqwidgets/jqxcore.js"></script>
