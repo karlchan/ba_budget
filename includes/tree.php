@@ -69,9 +69,3 @@
 		<span style="font-size:14px; font-family:Serif;">EERE Total: <?php echo number_format($programTotal) ?> (Dollars in Thousands) </span>
 	</div>
 	<div id="treemap" style="clear:both;top:25px"></div>
-  
-<?php
-if ((count($tmpParentIDList) == 1) && ($tmpParentIDList[0] != 0)){
-echo "<h3 style='text-align:center; color:red; clear:both'>Please select more than one program</h3>";
-}
-?>

@@ -9,7 +9,7 @@ include("includes/phpfunctions.php");
 include("includes/templateGlobals.php");
 
 //Page specific variables
-$strLastUpdated = "4/11/2013";
+$strLastUpdated = "2/04/2014";
 $strPageID = "70001";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
@@ -288,13 +288,13 @@ $(document).ready(function() {
         ?>
       </select>
     </div>
-
-
-  <input type="button" value="Reset" onclick="javascript:document.location.href='program_budget_formulation.php';" class="controlbutton"/>
-  <input type="submit" value="Submit" name="submit" class="controlbutton"/>
-  <?php if (isset($_POST['submit'])) { ?>
-  <input type="button" value="&laquo; Back" onclick="javascript:window.history.back();" class="controlbutton"/>
-  <?php } ?>
+		<p>
+		  <input type="button" value="Reset" onclick="javascript:document.location.href='program_budget_formulation.php';" class="controlbutton"/>
+		  <input type="submit" value="Submit" name="submit" class="controlbutton"/>
+		  <?php if (isset($_POST['submit'])) { ?>
+		  <input type="button" value="&laquo; Back" onclick="javascript:window.history.back();" class="controlbutton"/>
+		  <?php } ?>
+		</p>
     </form>
   </div>
 
