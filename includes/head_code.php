@@ -10,7 +10,7 @@ jQuery(document).ready(function() {
 </script>
   
 <script src="includes/highcharts/highcharts.js" type="text/javascript"></script>
-<script src="includes/tree.js" type="text/javascript"></script>
+<?php include("includes/display.php"); ?>
 
 <link href="includes/budget.css" rel="stylesheet" type="text/css" />
 
