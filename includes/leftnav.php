@@ -15,4 +15,4 @@
 <li><a href="http://energy.gov/eere/about-us/plans-implementation-and-results">Plans, Implementation, &amp; Results</a></li>
 <li><a href="http://energy.gov/eere/employment-opportunities-eere">Employment Opportunities</a></li>
 <li><a href="http://energy.gov/eere/frequently-asked-questions-about-office-energy-efficiency-and-renewable-energy">FAQs</a></li>
-<li><a href="http://energy.gov/eere/office-energy-efficiency-and-renewable-energy-contacts">Contacts</a></li>
+<li><a href="http://energy.gov/eere/office-energy-efficiency-and-renewable-energy-contacts">Contact Us</a></li>
