@@ -1,5 +1,5 @@
   <div id="program_header_content<?php if(!DISPLAY_TOPNAV){echo "_nonav";}?>">
-    <div id="searchbox">
+    <div id="searchbox" style="display:none;">
       <form name="seek" method="get" action="http://search.nrel.gov/query.html">
         <label for="search"><?php echo $strProgramName;?></label>
         <input type="hidden" name="qp" value="<?php echo SEARCH_STRING; ?>" />
@@ -20,12 +20,12 @@
       </form>
       <p><a href="http://www1.eere.energy.gov/site_administration/searchhelp.html">Search Help</a>&nbsp;<img src="<?php echo EXT_DIR_PREFIX; ?>/images/v2/search_arrow.gif" width="4" height="7" border="0" alt="" /></p>
     </div>
-    <div id="sitename"><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo SITE_HOME_URL; ?>"><?php echo $strProgramName;?></a></div>
+    <div id="sitename"><a href="http://energy.gov/eere/office-energy-efficiency-renewable-energy"><?php echo $strProgramName;?></a></div>
 
 <!--[if lt IE 8]><div id="ie-lt8"><![endif]-->
 <?php if (DISPLAY_TOPNAV) {
     //example top nav below: ?>
-    <div id="topnav">
+    <div id="topnav" style="display:none;">
       <ul>
         <li id="tn_home"><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/index.html">HOME</a></li>
         <li id="tn_about" class="current"><a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_main.html">ABOUT</a></li>
