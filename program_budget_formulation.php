@@ -149,7 +149,7 @@ var pageMetaData = {
 
 <div id="content">
   <div id="utility_line" class="clearfix">
-    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo SITE_HOME_URL; ?>"><?php echo $strProgramName;?></a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_main.html">About</a></div>
+    <div id="breadcrumb"><a href="http://energy.gov/eere/office-energy-efficiency-renewable-energy">EERE</a> &raquo; <a href="http://energy.gov/eere/about-us"><?php echo $strProgramName;?></a>  <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_main.html" style="display:none;">About</a></div>
 
     <ul id="utilities" class="nositemap">
       <!--<li id="print"><a id="printversion" href="/ba/printable_versions/about.html">Printable Version</a></li>-->
