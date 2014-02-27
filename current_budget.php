@@ -34,6 +34,8 @@ var pageMetaData = {
 </script>
 
 <?php include("includes/head_code.php");?>
+<link href="<?php echo EXT_DIR_PREFIX; ?>/includes/reset.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo EXT_DIR_PREFIX; ?>/includes/main_blue.css" rel="stylesheet" type="text/css" />
 
 
 
@@ -67,7 +69,7 @@ $(document).ready(function() {
 
 <div id="content">
   <div id="utility_line" class="clearfix">
-    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo SITE_HOME_URL; ?>"><?php echo $strProgramName;?></a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_main.html">About</a></div>
+    <div id="breadcrumb"><a href="http://energy.gov/eere/office-energy-efficiency-renewable-energy">EERE</a> &raquo; <a href="http://energy.gov/eere/about-us"><?php echo $strProgramName;?></a>  <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_main.html" style="display:none;">About</a></div>
 
     <ul id="utilities_508" class="nositemap">
       <!--<li id="print"><a id="printversion" href="#">Printable Version</a></li>-->
@@ -114,7 +116,7 @@ $(document).ready(function() {
     <!--<div class="callout">
       <p>The Office of Energy Efficiency and Renewable Energy (EERE) xxxxx <br/><a href="http://www2.eere.energy.gov/office_eere/bo_budget_fy14.html">EERE's 2014 fiscal year budget request</a></p>
     </div>-->
-      <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget. See also <a href="http://www1.eere.energy.gov/office_eere/bo_budget_fy14.html">EERE's FY 2014 Congressional Budget Request<!--<img width="13" height="14" class="arrowicon" alt="PDF"  src="<?php echo EXT_DIR_PREFIX; ?>/images/icon_pdf.gif" alt="PDF Format"/>--></a>.</p>
+      <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget. See also <a href="http://energy.gov/eere/eeres-2014-budget">EERE's FY 2014 Congressional Budget Request<!--<img width="13" height="14" class="arrowicon" alt="PDF"  src="<?php echo EXT_DIR_PREFIX; ?>/images/icon_pdf.gif" alt="PDF Format"/>--></a>.</p>
       <p><em>NOTE:</em> By using or accessing this website you are accepting all the terms of this <em>disclaimer notice</em>:  The content of this site is provided in good faith.  Every effort is made to ensure that the contents of this website is accurate.  There may be instances where funding levels may change due to modifications in appropriation language or funding request.  In that event, the website will be updated accordingly.</p>
       <p>* dollars in thousands</p>
 <?php

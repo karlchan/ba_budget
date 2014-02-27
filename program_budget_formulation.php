@@ -9,7 +9,7 @@ include("includes/phpfunctions.php");
 include("includes/templateGlobals.php");
 
 //Page specific variables
-$strLastUpdated = "4/11/2013";
+$strLastUpdated = "2/04/2014";
 $strPageID = "70001";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
@@ -38,6 +38,8 @@ var pageMetaData = {
 <meta name="cms_id" content="<?php echo $strPageID;?>" />
 <meta name="upd_date" content="<?php echo $strLastUpdated;?>" />
 <meta name="lnav_name" content="Budget Archives" />
+<link href="<?php echo EXT_DIR_PREFIX; ?>/includes/reset.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo EXT_DIR_PREFIX; ?>/includes/main_blue.css" rel="stylesheet" type="text/css" />
 
   <?php
   //setup page variables
@@ -147,7 +149,7 @@ var pageMetaData = {
 
 <div id="content">
   <div id="utility_line" class="clearfix">
-    <div id="breadcrumb"><a href="http://www.eere.energy.gov/">EERE</a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo SITE_HOME_URL; ?>"><?php echo $strProgramName;?></a> &raquo; <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_main.html">About</a></div>
+    <div id="breadcrumb"><a href="http://energy.gov/eere/office-energy-efficiency-renewable-energy">EERE</a> &raquo; <a href="http://energy.gov/eere/about-us"><?php echo $strProgramName;?></a>  <a href="<?php echo EXT_DIR_PREFIX; ?><?php echo WEB_ROOT; ?>/oe_main.html" style="display:none;">About</a></div>
 
     <ul id="utilities" class="nositemap">
       <!--<li id="print"><a id="printversion" href="/ba/printable_versions/about.html">Printable Version</a></li>-->
@@ -276,7 +278,7 @@ $(document).ready(function() {
         <option <?php if ($tmpChartTypeID == 1) echo " selected=\"selected\" ";?> value="1">Pie</option>
         <option <?php if ($tmpChartTypeID == 2) echo " selected=\"selected\" ";?> value="2">Line</option>
         <option <?php if ($tmpChartTypeID == 3) echo " selected=\"selected\" ";?> value="3">Column</option>
-		<option <?php if ($tmpChartTypeID == 5) echo " selected=\"selected\" ";?> value="5">Tree</option>
+		<option <?php if ($tmpChartTypeID == 5) echo " selected=\"selected\" ";?> value="5">Tree Map</option>
         <?php
           if ($blnNumberCheckMode) {
             ?>
@@ -286,13 +288,13 @@ $(document).ready(function() {
         ?>
       </select>
     </div>
-
-
-  <input type="button" value="Reset" onclick="javascript:document.location.href='program_budget_formulation.php';" class="controlbutton"/>
-  <input type="submit" value="Submit" name="submit" class="controlbutton"/>
-  <?php if (isset($_POST['submit'])) { ?>
-  <input type="button" value="&laquo; Back" onclick="javascript:window.history.back();" class="controlbutton"/>
-  <?php } ?>
+		<p>
+		  <input type="button" value="Reset" onclick="javascript:document.location.href='program_budget_formulation.php';" class="controlbutton"/>
+		  <input type="submit" value="Submit" name="submit" class="controlbutton"/>
+		  <?php if (isset($_POST['submit'])) { ?>
+		  <input type="button" value="&laquo; Back" onclick="javascript:window.history.back();" class="controlbutton"/>
+		  <?php } ?>
+		</p>
     </form>
   </div>
 
