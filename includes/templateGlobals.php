@@ -38,7 +38,7 @@ define("SITE_HOME_URL", WEB_ROOT . "/index.html");
 
 define("FY_OFFSET", 0);
 
-define("CURRENT_FY", '2014 Request');
+define("CURRENT_FY", '2015 Request');
 
 define("THREE_YEAR", 4);
 define("FIVE_YEAR", 6);

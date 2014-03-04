@@ -36,7 +36,7 @@ function getFiscalYears($numColumns){
   $result = mysql_query($sSQL);
   while ($row = mysql_fetch_array($result, MYSQL_NUM)){
     // only add the current FY data, ignore old 'request', 'house', and 'senate' data
-    if ((strpos($row[0], (string)CURRENT_FY) !== false) or (is_numeric($row[0])) or (strpos($row[0], "ARRA"))) {
+    if ((strpos($row[0], (string)CURRENT_FY) !== false) or (is_numeric($row[0])) or (strpos($row[0], "ARRA")) or (strpos($row[0], "Request"))) {
       array_push($tmpArray, $row[0]);
     }
   }
