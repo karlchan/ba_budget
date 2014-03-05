@@ -145,8 +145,8 @@ while($row = mysql_fetch_array($result))
       //KC: removing subprogram navigation: echo "<td><a href=\"program_budget_formulation.php?sel_programs[]=". $row['programID'] . "\">" . htmlspecialchars($row['program_name']) . " &raquo;</a></td>" . "\n";
       $programNameDisplay = htmlspecialchars($row['program_name']);
       if ($programNameDisplay == "Weatherization and Intergovernmental Activities") {
-        $programNameDisplay = $programNameDisplay . " *";
-        $wip_shown = true;
+        //$programNameDisplay = $programNameDisplay . " *";
+        //$wip_shown = true;
       }
       echo "<td>" . $programNameDisplay . "</td>" . "\n";
       echo "<td style=\"text-align:right;\">" . number_format($tmpBudget) . "</td>" . "\n";
