@@ -278,7 +278,7 @@ $(document).ready(function() {
         <option <?php if ($tmpChartTypeID == 1) echo " selected=\"selected\" ";?> value="1">Pie</option>
         <option <?php if ($tmpChartTypeID == 2) echo " selected=\"selected\" ";?> value="2">Line</option>
         <option <?php if ($tmpChartTypeID == 3) echo " selected=\"selected\" ";?> value="3">Column</option>
-		<option <?php if ($tmpChartTypeID == 5) echo " selected=\"selected\" ";?> value="5" style="display:none;">Tree Map</option>
+		<option <?php if ($tmpChartTypeID == 5) echo " selected=\"selected\" ";?> value="5">Tree Map</option>
         <?php
           if ($blnNumberCheckMode) {
             ?>
