@@ -119,7 +119,7 @@ $(document).ready(function() {
       <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget. See also <a href="http://energy.gov/node/808071">EERE's FY 2015 Congressional Budget Request<!--<img width="13" height="14" class="arrowicon" alt="PDF"  src="<?php echo EXT_DIR_PREFIX; ?>/images/icon_pdf.gif" alt="PDF Format"/>--></a> and the series of April 2014 budget request webinars:</p>
 	  <ul>
 		<li><a href="http://energy.gov/node/896716">Renewable Electricity Generation</a></li>
-		<li>Energy-Saving Homes, Buildings, and Manufacturing (coming soon)</li>
+		<li><a href="http://energy.gov/node/898036">Energy-Saving Homes, Buildings, and Manufacturing</a></li>
 		<li>Sustainable Transportation (coming soon)</li>
 	  </ul>
       <p><em>NOTE:</em> By using or accessing this website you are accepting all the terms of this <em>disclaimer notice</em>:  The content of this site is provided in good faith.  Every effort is made to ensure that the contents of this website is accurate.  There may be instances where funding levels may change due to modifications in appropriation language or funding request.  In that event, the website will be updated accordingly.</p>
