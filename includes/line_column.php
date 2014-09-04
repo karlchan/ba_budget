@@ -116,7 +116,7 @@
                 if ($tmpParentIDList[0] == 0){
                 //KC: removing subprogram navigation: force array reset: added the next line
                 //$tmpParentIDList = array(0);
-                  if ($tmpProgramType != 4) {
+                  if ($tmpProgramType != 5) {
                     //get only programs for a specific program type
 
                     $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
@@ -139,7 +139,7 @@
                    foreach($years as $year) {
                      if ($tmpParentIDList[0] == 0) {
                        //get rollup for parent level
-                       if ($tmpProgramType != 4)
+                       if ($tmpProgramType != 5)
                         $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
                        else
                         $tmpBudget = getBudgetRollup_FY_Program(0, mysql_real_escape_string($year), true, mysql_real_escape_string($row['programID']));
