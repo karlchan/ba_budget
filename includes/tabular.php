@@ -8,7 +8,7 @@
   $tmpParentName = getProgramName($tmpParentID);
   if($tmpParentName == "Weatherization and Intergovernmental Activities")
     $wip_shown = true;
-  if ($tmpProgramType != 4)
+  if ($tmpProgramType != 5)
     $result = returnProgramListing($tmpParentID, $tmpProgramType);
   else $result = getProgramTypes(); //Get only program types.
 ?>
@@ -44,7 +44,7 @@
       foreach($years as $year){
         //KC: removing subprogram navigation: if ($tmpParentID == 0){
           //get rollup for parent level
-          if ($tmpProgramType != 4)
+          if ($tmpProgramType != 5)
             $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
           else
             $tmpBudget = getBudgetRollup_FY_Program(0, mysql_real_escape_string($year), true, mysql_real_escape_string($row['programID']));
@@ -69,7 +69,7 @@
       foreach($years as $year){
         if ($tmpParentID == 0){
           //Totals for ALL EERE
-          if ($tmpProgramType == 0 or $tmpProgramType == 4)
+          if ($tmpProgramType == 0 or $tmpProgramType == 5)
             echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(0, mysql_real_escape_string($year),true)) . "</td>" . "\n";
           else
             echo "<td style=\"text-align:right; vertical-align:bottom;\">" . number_format(getBudgetRollup_FY_Program(0, mysql_real_escape_string($year),true, mysql_real_escape_string($tmpProgramType))) . "</td>" . "\n";

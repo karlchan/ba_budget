@@ -133,7 +133,7 @@
                   //get subprograms for the selected program.
                   //use programType only if at top level EERE
                 if ($tmpParentIDList[0] == 0) {
-                  if ($tmpProgramType != 4) {
+                  if ($tmpProgramType != 5) {
                     //get only programs for a specific program type
                     $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
                   }
@@ -148,7 +148,7 @@
                    $tmpDisplayRow .= "['" . $row['program_name'] . "', ";
                     //KC: removing subprogram navigation: if ($tmpParentIDList[0] == 0){
                       //get rollup for parent level
-                      if ($tmpProgramType != 4)
+                      if ($tmpProgramType != 5)
                         $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($currentYear));
                       else
                         $tmpBudget = getBudgetRollup_FY_Program(0, mysql_real_escape_string($currentYear), true, mysql_real_escape_string($row['programID']));
