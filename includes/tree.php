@@ -105,7 +105,7 @@
 							$("#filename").val(filename);
 							$("#filetype").val(filetype);
 							
-							$("#frmExport").submit();
+							$("#frmExport").submit(); 
 						}
 					}
 				});
