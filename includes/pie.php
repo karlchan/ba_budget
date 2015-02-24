@@ -40,9 +40,20 @@
       echo $tmpTotal;?>;
   var chart;
 			$(document).ready(function() {
+				// Radialize the colors
+				Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+					return {
+						radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+						stops: [
+							[0, color],
+							[1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+						]
+					};
+				});
+
 				chart = new Highcharts.Chart({
 					chart: {
-            marginLeft: 100,
+						marginLeft: 100,
 						renderTo: 'pie_eere_budget',
 						plotBackgroundColor: null,
 						plotBorderWidth: null,
@@ -82,10 +93,10 @@
 								enabled: true,
 								color: '#000000',
 								style: {
-                  width: 170,
-                  fontWeight: 'bold'
-                },
-                connectorColor: '#000000',
+								  width: 100,
+								  fontWeight: 'bold'
+								},
+								connectorColor: '#000000',
 								formatter: function() {
 									return '<strong>'+ this.point.name +'</strong>';
 								}

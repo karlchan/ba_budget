@@ -9,11 +9,11 @@ include("includes/phpfunctions.php");
 include("includes/templateGlobals.php");
 
 //Page specific variables
-$strLastUpdated = "2/04/2014";
+$strLastUpdated = "02/02/2015";
 $strPageID = "70001";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
-$current_FY = "2014 Request";
+$current_FY = "2015 Request";
 $pageHeadline = "EERE Budget Formulation";
 //set if you need client to see subprogram breakdown (tabular only)
 $blnNumberCheckMode = false;

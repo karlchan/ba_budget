@@ -116,11 +116,16 @@ $(document).ready(function() {
     <!--<div class="callout">
       <p>The Office of Energy Efficiency and Renewable Energy (EERE) xxxxx <br/><a href="http://www2.eere.energy.gov/office_eere/bo_budget_fy14.html">EERE's 2014 fiscal year budget request</a></p>
     </div>-->
-      <p>Below you'll find information on EERE's fiscal year <?php echo $current_FY;?> budget. See also <a href="http://energy.gov/node/808071">EERE's FY 2015 Congressional Budget Request<!--<img width="13" height="14" class="arrowicon" alt="PDF"  src="<?php echo EXT_DIR_PREFIX; ?>/images/icon_pdf.gif" alt="PDF Format"/>--></a> and the series of April 2014 budget request webinars:</p>
-	  <ul>
+      <p>Below you'll find information on EERE's fiscal year <?php echo substr($current_FY, 0, 4);?> budget request. See also <a href="http://energy.gov/node/1012486">EERE's FY 2016 Congressional Budget Request<!--<img width="13" height="14" class="arrowicon" alt="PDF"  src="<?php echo EXT_DIR_PREFIX; ?>/images/icon_pdf.gif" alt="PDF Format"/>--></a> and the series of April 2015 budget request webinars:</p>
+	  <ul style="display:none">
 		<li><a href="http://energy.gov/node/896716">Renewable Electricity Generation</a></li>
 		<li><a href="http://energy.gov/node/898036">Energy-Saving Homes, Buildings, and Manufacturing</a></li>
 		<li><a href="http://energy.gov/node/898326">Sustainable Transportation</a></li>
+	  </ul>
+	  <ul>
+			<li>Renewable Electricity Generation <i>(forthcoming)</i></li>
+			<li>Energy-Saving Homes, Buildings, and Manufacturing <i>(forthcoming)</i></li>
+			<li>Sustainable Transportation <i>(forthcoming)</i></li>
 	  </ul>
       <p><em>NOTE:</em> By using or accessing this website you are accepting all the terms of this <em>disclaimer notice</em>:  The content of this site is provided in good faith.  Every effort is made to ensure that the contents of this website is accurate.  There may be instances where funding levels may change due to modifications in appropriation language or funding request.  In that event, the website will be updated accordingly.</p>
       <p>* dollars in thousands</p>
@@ -149,7 +154,8 @@ while($row = mysql_fetch_array($result))
       echo "<tr>" . "\n";
       //KC: removing subprogram navigation: echo "<td><a href=\"program_budget_formulation.php?sel_programs[]=". $row['programID'] . "\">" . htmlspecialchars($row['program_name']) . " &raquo;</a></td>" . "\n";
       $programNameDisplay = htmlspecialchars($row['program_name']);
-      if ($programNameDisplay == "Weatherization and Intergovernmental Activities") {
+
+      if ($programNameDisplay == "Weatherization and Intergovernmental Program") {
         //$programNameDisplay = $programNameDisplay . " *";
         //$wip_shown = true;
       }

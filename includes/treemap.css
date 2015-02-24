@@ -1,0 +1,159 @@
+#divTreeContainer {
+    width: 800px;
+    height: 1080px;
+}
+
+.well  {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: #f5f5f5;
+	border: 1px solid #e3e3e3;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+
+#container {
+    width: 800px;
+    height: 1000px;
+    position:inherit;
+    top:10px;
+    background-color:#1a1a1a;
+    color:#ccc;
+    margin:auto;
+}
+
+#inner-details {
+    font-size:0.8em;
+    list-style:none;
+    margin:7px;
+}
+
+#treemap {
+    position:relative;
+    width: 800px;
+    height: 1000px;
+    margin:auto;
+    overflow:hidden;
+    text-align: center;
+}
+
+/*TOOLTIPS*/
+.tip {
+    color: #111;
+    width: 280px;
+    background-color: white;
+    border:1px solid #ccc;
+    -moz-box-shadow:#555 2px 2px 8px;
+    -webkit-box-shadow:#555 2px 2px 8px;
+    -o-box-shadow:#555 2px 2px 8px;
+    box-shadow:#555 2px 2px 8px;
+    opacity:0.9;
+    filter:alpha(opacity=90);
+    font-size:14px;
+    font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+    padding:7px;
+}
+
+/*TOOLTIPS ALT
+.tip {
+    color: #fff;
+    width: 280px;
+    background-color: black;
+    opacity:0.9;
+    filter:alpha(opacity=90);
+    font-size:14px;
+    font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+    padding:7px;
+}*/
+
+.node {
+  color:#fff;
+  font-size:14px;
+  overflow:hidden;
+  cursor:hand;
+/*  
+  text-shadow:2px 2px 5px #000;
+  -o-text-shadow:2px 2px 5px #000;
+  -webkit-text-shadow:2px 2px 5px #000;
+  -moz-text-shadow:2px 2px 5px #000;
+*/
+}
+
+
+
+/* white */
+.white {
+  color: #606060;
+  border: solid 1px #b7b7b7;
+  background: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+  background: -moz-linear-gradient(top,  #fff,  #ededed);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+}
+
+.white:hover {
+  background: #ededed;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+  background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+
+.white:active {
+  color: #999;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+  background: -moz-linear-gradient(top,  #ededed,  #fff);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+
+
+#root {
+	FONT-SIZE: 18px; CURSOR: default
+}
+#subprogram_TR_VTP_TI, #subprogram_RE_SEP_IM  {
+	FONT-SIZE: 14px
+}
+
+#subprogram_EE_AMO_ITA, #subprogram_RE_WP_SI  {
+	FONT-SIZE: 12px
+}
+
+#subprogram_EE_WIP_TA, #subprogram_EE_BTP_NRELUF, #subprogram_RE_SEP_NRELUF, #program_Ops_PD, #asstSec_Ops, #program_TR_BP, #subprogram_RE_WP_ET, #subprogram_RE_GT_IET {
+	FONT-SIZE: 11px
+}
+
+#subprogram_EE_WIP_LA, #subprogram_RE_WP_In, #subprogram_RE_WP_MB, #program_TR_FCT, #program_RE_WP, #program_RE_GT  {
+	LINE-HEIGHT: 11px; FONT-SIZE: 10px
+}
+
+
+#subprogram_EE_FEMP_DOE, #subprogram_EE_FEMP_FF, #subprogram_EE_FEMP_NREL, #subprogram_Ops_SP_SPIA , #program_Ops_SP, #program_EE_FEMP {
+	LINE-HEIGHT: 10px; FONT-SIZE: 9px
+}
+#subprogram_RE_WE_RC, #subprogram_RE_WP_MHK, #subprogram_TR_BP_AS , #subprogram_EE_FEMP_FEEF, #subprogram_RE_WP_HP, #subprogram_RE_WE_NRELUF {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WRITING-MODE: tb-rl; BOTTOM: 0px;
+DISPLAY: block; FONT-SIZE: 14px; OVERFLOW: visible; BORDER-TOP: 0px;
+BORDER-RIGHT: 0px; -webkit-transform: rotate(90deg) translate(-3em,
+5em); -moz-transform: rotate(90deg) translate(-1em, 3em); -o-transform:
+rotate(90deg) translate(-3em, 5em); -ms-transform: rotate(90deg)
+translate(-3em, 5em)
+}
+
+#subprogram_TR_VTP_NRELUF, #subprogram_RE_GT_SM, #subprogram_TR_BP_NRELUF  {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WRITING-MODE: tb-rl; BOTTOM: 0px;
+DISPLAY: block; FONT-SIZE: 12px; OVERFLOW: visible; BORDER-TOP: 0px;
+BORDER-RIGHT: 0px; -webkit-transform: rotate(90deg) translate(-3em,
+5em); -moz-transform: rotate(90deg) translate(-1em, 3em); -o-transform:
+rotate(90deg) translate(-3em, 5em); -ms-transform: rotate(90deg)
+translate(-3em, 5em)
+}
+
+#subprogram_TR_FCT_NRELUF, #subprogram_TR_FCT_SCS, #subprogram_TR_FCT_TV, #subprogram_RE_GT_SA  {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WRITING-MODE: tb-rl; BOTTOM: 0px;
+DISPLAY: block; FONT-SIZE: 10px; OVERFLOW: visible; BORDER-TOP: 0px;
+BORDER-RIGHT: 0px; -webkit-transform: rotate(270deg) translate(-3em,
+5em); -moz-transform: rotate(270deg) translate(-3em, 5em); -o-transform:
+rotate(270deg) translate(-3em, 5em); -ms-transform: rotate(270deg)
+translate(-3em, 5em); -moz-transform-origin: left ce
+}
