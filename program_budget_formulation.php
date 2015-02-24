@@ -9,11 +9,11 @@ include("includes/phpfunctions.php");
 include("includes/templateGlobals.php");
 
 //Page specific variables
-$strLastUpdated = "2/04/2014";
+$strLastUpdated = "02/02/2015";
 $strPageID = "70001";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
-$current_FY = "2014 Request";
+$current_FY = "2015 Request";
 $pageHeadline = "EERE Budget Formulation";
 //set if you need client to see subprogram breakdown (tabular only)
 $blnNumberCheckMode = false;
@@ -267,7 +267,8 @@ $(document).ready(function() {
         <option <?php if ($tmpProgramType == 1) echo " selected=\"selected\" ";?>value="1">Renewable</option>
         <option <?php if ($tmpProgramType == 2) echo " selected=\"selected\" ";?>value="2">Efficiency</option>
         <option <?php if ($tmpProgramType == 3) echo " selected=\"selected\" ";?>value="3">Corporate</option>
-        <option <?php if ($tmpProgramType == 4) echo " selected=\"selected\" ";?>value="4">Compare All</option>
+		<option <?php if ($tmpProgramType == 4) echo " selected=\"selected\" ";?>value="4">Transportation</option>
+        <option <?php if ($tmpProgramType == 5) echo " selected=\"selected\" ";?>value="5">Compare All</option>
       </select>
     </div>
     <?php } ?>

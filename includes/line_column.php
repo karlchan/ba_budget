@@ -1,9 +1,16 @@
+<style type="text/css">
+	body { line-height: normal; }
+</style>
 <script type="text/javascript" src="includes/highcharts/modules/exporting.js"></script>
 
 
 		<!-- 2. Add the JavaScript to initialize the chart on document ready -->
 		<script type="text/javascript">
-
+			var currencyformatter = new Intl.NumberFormat('en-US', {
+			  style: 'currency',
+			  currency: 'USD',
+			  minimumFractionDigits: 0,
+			});
 			var chart;
 			$(document).ready(function() {
 				chart = new Highcharts.Chart({
@@ -57,9 +64,11 @@
             enabled:false
           },
 					tooltip: {
+						enabled: true,
 						formatter: function() {
-				                return '<strong>'+ this.series.name +'</strong><br/>'+
-								this.x +': '+ formatNumber(this.y,0) +' ';
+							
+							console.log('<b>' + this.series.name + '</b><br/>' + this.x + ': ' + currencyformatter.format(this.y) + ' ');
+							return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + currencyformatter.format(this.y) + ' ';
 						}
 					},
 					legend: {
@@ -116,7 +125,7 @@
                 if ($tmpParentIDList[0] == 0){
                 //KC: removing subprogram navigation: force array reset: added the next line
                 //$tmpParentIDList = array(0);
-                  if ($tmpProgramType != 4) {
+                  if ($tmpProgramType != 5) {
                     //get only programs for a specific program type
 
                     $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
@@ -139,7 +148,7 @@
                    foreach($years as $year) {
                      if ($tmpParentIDList[0] == 0) {
                        //get rollup for parent level
-                       if ($tmpProgramType != 4)
+                       if ($tmpProgramType != 5)
                         $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($year));
                        else
                         $tmpBudget = getBudgetRollup_FY_Program(0, mysql_real_escape_string($year), true, mysql_real_escape_string($row['programID']));

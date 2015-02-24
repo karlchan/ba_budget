@@ -113,8 +113,8 @@ echo "</table>";
   <?php include("includes/footer.php");?>
 </div>
 
-<script language="JavaScript" src="/includes/nrel_eere.js" type="text/javascript"></script>
-<script language="JavaScript" src="/includes/countpdfs.js" type="text/javascript"></script>
+<script language="JavaScript" src="<?php echo EXT_DIR_PREFIX; ?>/includes/nrel_eere.js" type="text/javascript"></script>
+<script language="JavaScript" src="<?php echo EXT_DIR_PREFIX; ?>/includes/countpdfs.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript">set_printable_version();</script>
 <?php
   mysql_close($con);

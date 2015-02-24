@@ -40,9 +40,20 @@
       echo $tmpTotal;?>;
   var chart;
 			$(document).ready(function() {
+				// Radialize the colors
+				Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+					return {
+						radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+						stops: [
+							[0, color],
+							[1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+						]
+					};
+				});
+
 				chart = new Highcharts.Chart({
 					chart: {
-            marginLeft: 100,
+						marginLeft: 100,
 						renderTo: 'pie_eere_budget',
 						plotBackgroundColor: null,
 						plotBorderWidth: null,
@@ -82,10 +93,10 @@
 								enabled: true,
 								color: '#000000',
 								style: {
-                  width: 170,
-                  fontWeight: 'bold'
-                },
-                connectorColor: '#000000',
+								  width: 100,
+								  fontWeight: 'bold'
+								},
+								connectorColor: '#000000',
 								formatter: function() {
 									return '<strong>'+ this.point.name +'</strong>';
 								}
@@ -133,7 +144,7 @@
                   //get subprograms for the selected program.
                   //use programType only if at top level EERE
                 if ($tmpParentIDList[0] == 0) {
-                  if ($tmpProgramType != 4) {
+                  if ($tmpProgramType != 5) {
                     //get only programs for a specific program type
                     $result = returnProgramListing($tmpParentIDList[0], $tmpProgramType);
                   }
@@ -148,7 +159,7 @@
                    $tmpDisplayRow .= "['" . $row['program_name'] . "', ";
                     //KC: removing subprogram navigation: if ($tmpParentIDList[0] == 0){
                       //get rollup for parent level
-                      if ($tmpProgramType != 4)
+                      if ($tmpProgramType != 5)
                         $tmpBudget = getBudgetRollup_FY_Program(mysql_real_escape_string($row['programID']), mysql_real_escape_string($currentYear));
                       else
                         $tmpBudget = getBudgetRollup_FY_Program(0, mysql_real_escape_string($currentYear), true, mysql_real_escape_string($row['programID']));

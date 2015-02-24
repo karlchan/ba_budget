@@ -178,9 +178,20 @@ function getBudgetRollup_FY_Program($programID, $fiscal_year, $blnAllEERE = fals
     }
   }
   else {
-    $sSQL = sprintf("select sum(fy_budget.budget) from fy_budget
-                   inner join program on fy_budget.programID = program.programID
-                   where program.parentID = %d and fy_budget.fiscal_year = '%s'", $programID, $fiscal_year);
+	// from 2013: use roll-up data and sum the sub-program budget entries
+	if (substr($fiscal_year, 0, 4) > 2012) {
+		$sSQL = sprintf("select sum(fy_budget.budget) from fy_budget
+					   inner join program on fy_budget.programID = program.programID
+					   where (INSTR(program.program_name, 'Rollup') > 0) and 
+					   program.parentID = %d and fy_budget.fiscal_year = '%s'", $programID, $fiscal_year);
+	}
+	else { // older data is using sub-program entries
+		$sSQL = sprintf("select sum(fy_budget.budget) from fy_budget
+					   inner join program on fy_budget.programID = program.programID
+					   where program.parentID = %d and fy_budget.fiscal_year = '%s'", $programID, $fiscal_year);
+	
+	}
+	
   }
   $result = mysql_query($sSQL);
   if (mysql_num_rows($result) == 0) return 0;
