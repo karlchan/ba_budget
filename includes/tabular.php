@@ -36,7 +36,7 @@
       $tmpBudgetTotal = 0;
       $tmpDisplayRow .= "<tr>" . "\n";
       $programNameDisplay = htmlspecialchars($row['program_name']);
-      if ($programNameDisplay == "Weatherization and Intergovernmental Activities") {
+      if ($programNameDisplay == "Weatherization and Intergovernmental Program" && (in_array(2012, $years) || in_array(2013, $years) || in_array(2014, $years))) {
         $programNameDisplay = $programNameDisplay . " *";
         $wip_shown = true;
       }
