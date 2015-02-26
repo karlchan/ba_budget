@@ -209,11 +209,23 @@
 				?>
 
 				
-				  var formatter = new Intl.NumberFormat('en-US', {
-					  style: 'currency',
-					  currency: 'USD',
-					  minimumFractionDigits: 0,
-					});
+				  // var formatter = new Intl.NumberFormat('en-US', {
+					  // style: 'currency',
+					  // currency: 'USD',
+					  // minimumFractionDigits: 0,
+					// });
+					function addCommas(nStr)
+					{
+						nStr += '';
+						x = nStr.split('.');
+						x1 = x[0];
+						x2 = x.length > 1 ? '.' + x[1] : '';
+						var rgx = /(\d+)(\d{3})/;
+						while (rgx.test(x1)) {
+							x1 = x1.replace(rgx, '$1' + ',' + '$2');
+						}
+						return x1 + x2;
+					}
 				  //init TreeMap
 				  var tm = new $jit.TM.Squarified({
 					//where to inject the visualization
@@ -272,7 +284,7 @@
 						  + "</div><div class=\"tip-text\">";
 						var data = node.data;
 						if(data.amount) {
-						  html += "Amount: " + formatter.format(data.amount) + "<br/>% Total Budget: " + Math.round((data.$area/<?php echo $programTotal?>)*10000)/100 + "%";
+						  html += "Amount: $" + addCommas(data.amount) + "<br/>% Total Budget: " + Math.round((data.$area/<?php echo $programTotal?>)*10000)/100 + "%";
 						}
 						tip.innerHTML =  html; 
 					  }  

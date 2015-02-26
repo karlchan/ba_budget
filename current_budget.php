@@ -9,11 +9,11 @@ include("includes/phpfunctions.php");
 include("includes/templateGlobals.php");
 
 //Page specific variables, see templateGlobals.php for more variables and constant definitions
-$strLastUpdated = "1/14/2014";
+$strLastUpdated = "2/24/2015";
 $strPageID = "70000";
 $strProgramName = PROGRAM_NAME;
 $bln3Colmode = false;
-$current_FY = "2015 Request";
+$current_FY = "2016 Request";
 $pageHeadline = "Fiscal Year " . $current_FY . " Budget";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

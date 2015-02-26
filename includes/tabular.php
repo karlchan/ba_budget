@@ -60,11 +60,11 @@
       }
       $tmpDisplayRow .= "</tr>" . "\n";
       if ($tmpBudgetTotal != 0) {
-        echo $tmpDisplayRow;
-      }
+		echo $tmpDisplayRow;
+	  }
   }
-  //if there are multiple results, show the totals row
-  if (mysql_num_rows($result) > 1) {
+  //if there are any results, show the totals row
+  if (mysql_num_rows($result) > 0) {
     echo "<tr><td style=\"text-align:right; vertical-align:bottom;\"><strong>Totals:</strong></td>\n";
       foreach($years as $year){
         if ($tmpParentID == 0){
